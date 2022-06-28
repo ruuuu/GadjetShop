@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PAGES = ['index', 'cart', 'card'];
 
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
@@ -24,9 +25,12 @@ module.exports = {
     assetModuleFilename: 'assets/[name][ext]'
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
-    }),
+    ...PAGES.map(page =>  // map обратно вернет массив,для распаквываня этого массива, и извлечения из него объектов, ставим спред оператор это массив 
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, 'src', `${page}.html`),
+        filename: `./${page}.html`
+      })),
+
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
