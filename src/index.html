@@ -12,6 +12,10 @@
   <title>GadjetShop</title>
 </head>
 
+
+<!-- для подклчения  шрифтов, переходим сюда  https://google-webfonts-helper.herokuapp.com/fonts/montserrat?subsets=cyrillic,latin и в посик вбиваем нужный нам шрифт и выбираем нужыне начертания(regular, medium ), жмем кнпоку Mpdern Browsers и копируем код для подклбчения шрифтов, в блоке Download files жмем накнпоку Скачать, скачаем сами шрифты -->
+<!--Прописываем  aria-label для всех интерактивных элементов (ссылки и кнопки) коорые не имеют текстововго описания-->
+
 <body>
   <header class="header">
     <h1 class="visually-hidden">Онлайн магазин гаджетов</h1>
@@ -477,6 +481,19 @@
       </div>
     </div>
   </footer>
+
+  <div class="modal">
+    <h2 class="modal__title">Ваша заявка успешно отправлена</h2>
+    <p class="modal__text">Наши менеджеры свяжутся с вами в течении 3-х рабочих дней</p>
+    <img class="modal__img " src="img/Ok.jpg" alt="success_send">
+  </div>
+
+  <div class="modal">
+    <h2 class="modal__title">Упс... Что-то пошло не так</h2>
+    <p class="modal__text">Не удалось отправить заявку. Пожалуйста, повторите отправку еще раз</p>
+    <img class="modal__img" src="img/error.jpg" alt="error_send">
+  </div>
+
 </body>
 
 </html>

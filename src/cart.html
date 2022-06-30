@@ -26,7 +26,7 @@
             <form class="header__seacrh search">
                 <input class="search__input" type="search">
 
-                <button class="search__button">
+                <button class="search__button" aria-label="Найти на сайте">
                     <!--кнопка поиска, fill="currentColor" чтобы упарвлять чрез color-->
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@
                     <span>8 914 923 92 - 23</span>
                 </a>
 
-                <a class="header__cart" href="cart.html">
+                <a class="header__cart" href="cart.html" aria-label="перейти в корзину">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -59,16 +59,172 @@
 
     <main>
         <section class="cart">
-            <div class="container">
-                <h2 class="cart__title">Корзина</h2>
-                <div class="cart__container">
+            <h2 class="visually-hidden">Корзина</h2>
+            <div class="container cart__container">
+                <section class="cart-goods">
+                    <h3 class="cart-goods__title">Корзина</h3>
 
-                </div>
+                    <ul class="cart-goods__list">
+                        <li class="cart-goods__item item">
+                            <img class="item__img" src="img/monitor.jpg" alt="monitor">
+                            <div class="item__detail">
+                                <h4 class="item__title">Монитор AOC 24G2U/BK</h4>
+                                <p class="item__vendor-code">Артикул: 654651968</p>
+                            </div>
+
+                            <div class="item__control">
+                                <div class="item__count">
+                                    <button class="item__btn item__btn--dec">–</button>
+                                    <output class="item__number">1</output>
+                                    <button class="item__btn item__btn--inc">+</button>
+                                </div>
+                                <p class="item__price">20799 ₽ </p>
+                                <button class="item__remove-cart">
+                                    <svg>
+                                        <use href="#remove" />
+                                    </svg>
+                                </button>
+                        </li>
+
+                        <li class="cart-goods__item item">
+                            <img class="item__img" src="img/monitor.jpg" alt="monitor">
+                            <div class="item__detail">
+                                <h4 class="item__title">Монитор AOC 24G2U/BK</h4>
+                                <p class="item__vendor-code">Артикул: 654651968</p>
+                            </div>
+
+                            <div class="item__control">
+                                <div class="item__count">
+                                    <button class="item__btn item__btn--dec">–</button>
+                                    <output class="item__number">1</output>
+                                    <button class="item__btn item__btn--inc">+</button>
+                                </div>
+                                <p class="item__price">20799 ₽ </p>
+                                <button class="item__remove-cart">
+                                    <svg>
+                                        <use href="#remove" />
+                                    </svg>
+                                </button>
+                        </li>
+
+                        <li class="cart-goods__item item">
+                            <img class="item__img" src="img/monitor.jpg" alt="monitor">
+                            <div class="item__detail">
+                                <h4 class="item__title">Монитор AOC 24G2U/BK</h4>
+                                <p class="item__vendor-code">Артикул: 654651968</p>
+                            </div>
+
+                            <div class="item__control">
+                                <div class="item__count">
+                                    <button class="item__btn item__btn--dec">–</button>
+                                    <output class="item__number">1</output>
+                                    <button class="item__btn item__btn--inc">+</button>
+                                </div>
+                                <p class="item__price">20799 ₽ </p>
+                                <button class="item__remove-cart">
+                                    <svg>
+                                        <use href="#remove" />
+                                    </svg>
+                                </button>
+                        </li>
+                    </ul>
+                </section>
+
+
+                <section class="cart__address address">
+                    <h3 class="cart__title">Адрес доставки</h3>
+
+                    <form class="address__form">
+                        <label>
+                            <!--обренем список в label чтобы не ругался валидатор-->
+                            <select class="address__item address__item--select" name="city">
+                                <option value="" disabled selected>Город</option>
+                                <option value="Moscow">Москва</option>
+                                <option value="St Peterburg">Питер</option>
+                                <option value="Kazan">Казань</option>
+                            </select>
+                        </label>
+
+                        <label><input class="address__item" type="text" placeholder="Квартира"></label>
+
+                        <label><input class="address__item" type="text" placeholder="ФИО"></label>
+
+                        <label><input class="address__item" type="text" placeholder="Улица"></label>
+
+                        <label><input class="address__item" type="text" placeholder="Индекс"></label>
+
+                        <button class="address__item-btn">Сохранить</button>
+
+                        <label class="address__label-save"><input type="checkbox" name="save-address">Запомнить этот
+                            адрес
+                        </label>
+                    </form>
+
+                </section>
+
+
+                <section class="cart__total">
+                    <!--блок Итого-->
+                    <h3 class="visually-hidden">Итого</h3>
+
+                    <ul class="total__table">
+                        <li class="total__row total__row--header">
+                            <span>Итого</span>
+                            <span>41 222 ₽</span>
+                        </li>
+
+                        <li class="total__row total__row--grey">
+                            <span>Товары, 3 шт.</span>
+                            <span>41 222 ₽</span>
+                        </li>
+
+                        <li class="total__row total__row--grey">
+                            <span>Скидка</span>
+                            <span>41 222 ₽</span>
+                        </li>
+
+                        <li class="total__row total__row--grey">
+                            <span>Доставка</span>
+                            <span>41 222 ₽</span>
+                        </li>
+
+                        <li class="total__row">
+                            <span>Дата</span>
+                            <span>01-03июля</span>
+                        </li>
+
+                        <li class="total__row">
+                            <span>Оплата</span>
+                            <span>41 222 ₽</span>
+                        </li>
+                    </ul>
+
+                    <div class="total__order">
+                        <button class="total__submit">Оформить заказ</button>
+                        <label class="total__agree">
+                            <input type="checkbox" name="agree">
+                            <span>Согласен с <a class="total__agree-link" href="">условиями</a> правил
+                                пользования торговой площадкой и&nbsp; правилами возврат</span>
+                            <!-- &nbsp; чтобы слова не переносиилсь-->
+                        </label>
+                    </div>
+
+                </section>
             </div>
         </section>
 
 
     </main>
+
+    <svg style="display: none" width="32" height="32">
+        <symbol id="remove" width="20" height="19" viewBox="0 0 20 19" fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M19.3337 2.04666L17.4537 0.166656L10.0003 7.61999L2.54699 0.166656L0.666992 2.04666L8.12033 9.49999L0.666992 16.9533L2.54699 18.8333L10.0003 11.38L17.4537 18.8333L19.3337 16.9533L11.8803 9.49999L19.3337 2.04666Z" />
+        </symbol>
+    </svg>
+
+
 
     <footer class="footer">
         <h2 class="visually-hidden">Подвал</h2>
@@ -145,7 +301,7 @@
 
                 <ul class="footer__social">
                     <li class="social__item">
-                        <a class="socil__link" href="">
+                        <a class="socil__link" href="" aria-label="ПЕрейти в  whats up">
                             <svg width="26" height="26" viewBox="0 0 26 26" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -157,7 +313,7 @@
                     </li>
 
                     <li class="social__item">
-                        <a class="socil__link" href="">
+                        <a class="socil__link" href="" aria-label="ПЕрейти на youtube">
                             <svg width="26" height="26" viewBox="0 0 26 26" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -167,7 +323,7 @@
                     </li>
 
                     <li class="social__item">
-                        <a class="socil__link" href="">
+                        <a class="socil__link" href="" aria-label="ПЕрейти в  telegram">
                             <svg width="26" height="26" viewBox="0 0 26 26" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
