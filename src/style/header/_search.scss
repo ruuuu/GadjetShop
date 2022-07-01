@@ -1,0 +1,31 @@
+.search {
+    width: 100%;
+    max-width: 818px;
+    height: 50px;
+    position: relative; // кнопку поиска будем позиционировать относительно этого элемента
+
+
+    &__input {
+        width: 100%;
+        height: 100%;
+        padding-left: 24px;
+        padding-right: 54px;
+        border: 1px solid #CDCDCD;
+        border-radius: 16px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    &__button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%); //  top: 50%; и это свойтво отцентрует по вертикали кнпоку
+        right: 26px;
+        border: 0;
+        background-color: transparent;
+        line-height: 0; // чтоб вниз место под иконкой убралось
+
+    }
+}

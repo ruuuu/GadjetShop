@@ -1,0 +1,46 @@
+.header {
+    padding-top: 26px;
+    padding-bottom: 26px;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        gap: 30px;
+
+    }
+
+    &__logo {
+        display: block;
+    }
+
+    &__seacrh {
+        //грид элемент
+        justify-self: center; // выравнили по центру (по горизонтали)
+    }
+
+
+
+
+    &__nav {
+        //грид элемент, котрый флекс бокс
+        justify-self: end; // выравнили по правому карю (по горизонтали)
+        align-items: center; //выравнили по вертикали
+        display: flex;
+        justify-content: space-between;
+        max-width: 330px;
+        width: 100%;
+    }
+
+    &__phone {
+        display: flex;
+        align-items: center;
+        gap: 5px; // расстяние между флекс элементам
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+
+    }
+
+    &__cart {}
+}

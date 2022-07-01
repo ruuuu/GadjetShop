@@ -1,10 +1,12 @@
 html {
+    // стили по умолчанию
     position: relative;
     box-sizing: border-box;
 }
 
 *,
 *::before,
+// псевдоэлемент
 *::after {
     box-sizing: inherit;
 }
@@ -13,13 +15,15 @@ body {
     min-width: 320px;
     min-height: 100vh;
     font-family: Montserrat, sans-serif;
+    color: $color-primary;
+    background-color: $color-secondary;
 }
 
 
 img,
 svg {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 100%; // для svg, если испльозавть спрайт
     height: auto;
 }
 
@@ -58,6 +62,7 @@ iframe {
   */
 
 .visually-hidden {
+    // прраммы читалки  элемент с этим классом увидят
     position: fixed;
     transform: scale(0);
 }
@@ -72,7 +77,12 @@ iframe {
   */
 
 .container {
-    max-width: 1240px;
-    padding: 0 30px;
+    max-width: 1880px;
+    padding: 0 30px; // чтоб контенет не прижмался к краям страницы
     margin: 0 auto;
+}
+
+main {
+    padding-top: 70px;
+    padding-bottom: 120px;
 }
