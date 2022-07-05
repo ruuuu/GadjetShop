@@ -9,12 +9,19 @@
 
         // а можно через гриды:
         display: grid;
-        grid-template-columns: repeat(4, 340px); //  4  колонки по 340 px
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); //  число колонок завист от ширины экрана, но ширин колонок всегда от 310px  до 1fr
+        gap: 40px 30px;
+    }
+
+    &__item {
+        // карточка товара, грид элемент
+        min-width: 310px;
+        max-width: 340px;
+
 
     }
 
-    &__item {}
-
+    //---------------------
     .goods-item {}
 
     .goods-item__image {}

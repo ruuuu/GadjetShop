@@ -1,0 +1,20 @@
+.recommended {
+
+    &__title {}
+
+    &__carousel {
+        display: flex;
+        align-items: center;
+    }
+
+    &__carousel-arrow {}
+
+    &__carousel-arrow--start svg {
+        color: red;
+    }
+
+
+
+
+    &__carousel-arrow--end {}
+}

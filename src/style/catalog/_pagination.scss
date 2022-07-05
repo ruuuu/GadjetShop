@@ -1,12 +1,50 @@
 .pagination {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    gap: 21px;
 
-    &__arrow {}
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: $color-primary;
 
-    &__arrow--start {}
 
-    &__list {}
+    &__arrow svg {
+        color: $color-grey-light;
+    }
 
-    &__item {}
+
+    &__arrow--start svg,
+    &__arrow--end svg {
+
+        &:hover {
+            color: $color-primary;
+        }
+
+        &:active {
+            color: $color-primary;
+        }
+    }
+
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+    }
+
+
+    &__item {
+
+        &--active {
+            width: 36px;
+            height: 36px;
+            padding: 8px 14px;
+            border: 1px solid $color-main-sub;
+        }
+
+    }
 
     &__link {}
 

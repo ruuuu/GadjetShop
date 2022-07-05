@@ -1,23 +1,95 @@
 .filter {
-
+    position: relative; // относительно фильтра позиционируем кнопку Очистть все
+    max-width: 340px;
 
     &__form {}
 
-    &__titile {}
+    &__titile {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 37px;
+    }
 
-    &__reset {}
 
-    &__fileld {}
+    &__fields-list {
+        margin-bottom: 40px;
+    }
 
-    &__fileld-title {}
+    &__fileld {
+        margin-bottom: 30px;
 
-    &__flex {}
+        &--output {
+            margin-bottom: 0;
+        }
+    }
 
-    &__input {}
 
-    &__select {}
 
-    .filter-checkbox {}
+    &__fileld-title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 10px;
+    }
 
-    &__apply {}
+
+    &__flex {
+        display: flex;
+        gap: 10px;
+
+        &--column {
+            flex-direction: column;
+
+        }
+    }
+
+
+    &__input {
+        width: 165px;
+        padding: 9px 10px;
+
+        &::placeholder {
+            color: $color-grey;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+        &--select {
+            // список Категория 
+            width: 100%;
+            color: $color-grey;
+        }
+    }
+
+
+
+
+    &__checkbox {
+        margin-right: 10px;
+    }
+
+    &__apply {
+        padding: 8px 20px;
+        background-color: $color-primary;
+        color: $color-secondary;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+
+    }
+
+    &__reset {
+        position: absolute;
+        top: 5px;
+        right: 4px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: $color-grey;
+        background-color: transparent;
+        border: 0;
+    }
 }
