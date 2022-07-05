@@ -1,54 +1,66 @@
 .pagination {
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin: 0 auto;
     gap: 21px;
 
-    font-weight: 400;
+
     font-size: 18px;
     line-height: 22px;
     color: $color-primary;
 
+    &__arrow {
+        // a 
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-image: url('img/arrow-right.svg');
+        background-repeat: no-repeat;
+        background-position: center;
 
-    &__arrow svg {
-        color: $color-grey-light;
-    }
 
-
-    &__arrow--start svg,
-    &__arrow--end svg {
-
-        &:hover {
-            color: $color-primary;
+        &--start {
+            transform: rotate(180deg); // левая стрелка повернется влево
         }
 
-        &:active {
-            color: $color-primary;
+        &--end {}
+
+        &[href=""] {
+            opacity: 0.5;
+            pointer-events: none; // чтоыб неактвная стрелка былв недоступна
         }
     }
+
 
 
     &__list {
         display: flex;
         align-items: center;
-        gap: 26px;
+        gap: 10px;
     }
 
 
-    &__item {
+    &__item {}
+
+
+    &__link {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        padding: 8px 14px;
+        border: 2px solid transparent;
+        border-radius: 2px;
+        transition: border-color 0.2s ease; // цвет рамки менятся за 0.2s
 
         &--active {
-            width: 36px;
-            height: 36px;
-            padding: 8px 14px;
-            border: 1px solid $color-main-sub;
+            border-color: $color-main-sub;
         }
-
     }
 
-    &__link {}
 
-    &__link--active {}
 
-    &__arrow--end {}
+
 }

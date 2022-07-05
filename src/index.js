@@ -17,39 +17,19 @@ const thumbSwiper = new Swiper('.card__slider-thumb', {
         draggable: true, // чтоы можно было перетаскивать
     },
 
-}
-);
+});
 
-new Swiper('.card__image',
-    {
-        spaceBetween: 10, // расстояние между слайдами
-        slidesPerView: 1,// сколько слайдев отображать на станице
-        thumbs: {
-            swiper: thumbSwiper,
-            slideThumbActiveClass: 'card__thumb-btn--active',
-        },
-        modules: [Thumbs]
-        // Optional parameters
-        // direction: 'vertical',
-        // loop: true,
 
-        // // If we need pagination
-        // pagination: {
-        //     el: '.swiper-pagination',
-        // },
+new Swiper('.card__image', {
+    spaceBetween: 10, // расстояние между слайдами
+    slidesPerView: 1,// сколько слайдев отображать на станице
+    thumbs: {
+        swiper: thumbSwiper,
+        slideThumbActiveClass: 'card__thumb-btn--active',
+    },
+    modules: [Thumbs]
 
-        // // Navigation arrows
-        // navigation: {
-        //     nextEl: '.swiper-button-next',
-        //     prevEl: '.swiper-button-prev',
-        // },
-
-        // // And if we need scrollbar
-        // scrollbar: {
-        //     el: '.swiper-scrollbar',
-        // },
-    }
-);
+});
 
 
 
@@ -59,28 +39,7 @@ new Swiper('.card__image',
 new Swiper('.recommended__carousel', {
     spaceBetween: 30, // расстояние между слайдами
     slidesPerView: 5,
-
-    //     // Optional parameters
-    //     direction: 'vertical',
-    //     loop: true,
-
-    //     // If we need pagination
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //     },
-
-    //     // Navigation arrows
-    //     navigation: {
-    //         nextEl: '.swiper-button-next',
-    //         prevEl: '.swiper-button-prev',
-    //     },
-
-    //     // And if we need scrollbar
-    //     scrollbar: {
-    //         el: '.swiper-scrollbar',
-    //     },
-}
-);
+});
 
 
 

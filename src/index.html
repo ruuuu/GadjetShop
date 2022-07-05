@@ -73,20 +73,6 @@
                     <h3 class="goods-item__title">Моноблок HP ProOne</h3>
                   </a>
 
-                  <div class="good-item__buy">
-                    <p class="goods-item__proce">58389 ₽</p>
-                    <button class="goods-item__to-cart">В корзину</button>
-                  </div>
-                </article>
-              </li>
-
-              <li class="goods__item">
-                <article class="goods-item">
-                  <a href="card.html">
-                    <img class="goods-item__image" src="img/computer.jpg" alt="computer">
-                    <h3 class="goods-item__title">Моноблок HP ProOne</h3>
-                  </a>
-
                   <div class="goods-item__buy">
                     <p class="goods-item__proce">58389 ₽</p>
                     <button class="goods-item__to-cart">В корзину</button>
@@ -115,7 +101,21 @@
                     <h3 class="goods-item__title">Моноблок HP ProOne</h3>
                   </a>
 
-                  <div class="good-item__buy">
+                  <div class="goods-item__buy">
+                    <p class="goods-item__proce">58389 ₽</p>
+                    <button class="goods-item__to-cart">В корзину</button>
+                  </div>
+                </article>
+              </li>
+
+              <li class="goods__item">
+                <article class="goods-item">
+                  <a href="card.html">
+                    <img class="goods-item__image" src="img/computer.jpg" alt="computer">
+                    <h3 class="goods-item__title">Моноблок HP ProOne</h3>
+                  </a>
+
+                  <div class="goods-item__buy">
                     <p class="goods-item__proce">58389 ₽</p>
                     <button class="goods-item__to-cart">В корзину</button>
                   </div>
@@ -291,11 +291,13 @@
 
                   <label>
                     <select class="filter__input filter__input--select" name="category">
-                      <option value="">смартфоны</option>
-                      <option value="">планшеты</option>
-                      <option value="">умные часы</option>
-                      <option value="">моноблоки</option>
-                      <option value="">ноутбуки</option>
+                      <option value="all" disabled selected>Все категории</option>
+                      <!--disabled дизейблим, selected значит выбран по умолчанию-->
+                      <option value="phone">смартфоны</option>
+                      <option value="tab">планшеты</option>
+                      <option value="clock">умные часы</option>
+                      <option value="monoblock">моноблоки</option>
+                      <option value="laptop">ноутбуки</option>
                     </select>
                   </label>
                 </fieldset>
@@ -352,19 +354,7 @@
           </aside>
 
           <div class="catalog__pagination pagination">
-            <a href="#" class="pagination__arrow pagination__arrow--start" aria-label="перейти на первую страницу">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_31_418)">
-                  <path
-                    d="M13.092 3.49205L7.59598 9.00005L13.092 14.508L11.4 16.2L4.19998 9.00005L11.4 1.80005L13.092 3.49205Z" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_31_418">
-                    <rect width="18" height="18" fill="white" transform="translate(18) rotate(90)" />
-                  </clipPath>
-                </defs>
-              </svg>
-
+            <a href="" class="pagination__arrow pagination__arrow--start" aria-label="перейти на первую страницу">
             </a>
 
             <ul class="pagination__list">
@@ -383,18 +373,6 @@
             </ul>
 
             <a href="#" class="pagination__arrow pagination__arrow--end" aria-label="перейти на последнюю страницу">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_31_745)">
-                  <path
-                    d="M4.90802 3.49205L10.404 9.00005L4.90802 14.508L6.60002 16.2L13.8 9.00005L6.60002 1.80005L4.90802 3.49205Z" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_31_745">
-                    <rect width="18" height="18" fill="white" transform="matrix(0 1 1 0 0 0)" />
-                  </clipPath>
-                </defs>
-              </svg>
-
             </a>
           </div>
         </div>

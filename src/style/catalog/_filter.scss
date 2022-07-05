@@ -1,8 +1,11 @@
 .filter {
-    position: relative; // относительно фильтра позиционируем кнопку Очистть все
-    max-width: 340px;
 
-    &__form {}
+    max-width: 340px;
+    padding-top: 78px;
+
+    &__form {
+        position: relative; // относительно фильтра позиционируем кнопку Очистть все
+    }
 
     &__titile {
         font-style: normal;
@@ -16,6 +19,7 @@
     &__fields-list {
         margin-bottom: 40px;
     }
+
 
     &__fileld {
         margin-bottom: 30px;
@@ -41,6 +45,9 @@
 
         &--column {
             flex-direction: column;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
 
         }
     }
@@ -48,13 +55,15 @@
 
     &__input {
         width: 165px;
+        height: 38px;
         padding: 9px 10px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        border: 1px solid $color-primary;
 
         &::placeholder {
             color: $color-grey;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 20px;
         }
 
         &--select {
@@ -65,20 +74,21 @@
     }
 
 
-
-
     &__checkbox {
         margin-right: 10px;
     }
 
+
     &__apply {
+        display: block;
+        margin: 0 auto;
         padding: 8px 20px;
         background-color: $color-primary;
         color: $color-secondary;
         font-weight: 500;
         font-size: 16px;
         line-height: 20px;
-
+        border: none;
     }
 
     &__reset {
