@@ -1,6 +1,14 @@
 .address {
 
-    &__form {}
+    &__title {
+        margin-bottom: 30px;
+    }
+
+    &__form {
+        display: grid;
+        grid-template-columns: 340px 340px 340px;
+
+    }
 
     &__item {}
 
