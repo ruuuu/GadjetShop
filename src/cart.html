@@ -131,12 +131,61 @@
                 </section>
 
 
+                <section class="cart__total total">
+                    <!--блок Итого-->
+                    <h3 class="visually-hidden">Итого</h3>
+
+                    <div class="total__wrapper">
+                        <ul class="total__table">
+                            <li class="total__row total__row--header">
+                                <span>Итого</span>
+                                <span>41 222 ₽</span>
+                            </li>
+
+                            <li class="total__row total__row--grey">
+                                <span>Товары, 3 шт.</span>
+                                <span>41 222 ₽</span>
+                            </li>
+
+                            <li class="total__row total__row--grey">
+                                <span>Скидка</span>
+                                <span>41 222 ₽</span>
+                            </li>
+
+                            <li class="total__row total__row--grey total__row--gap">
+                                <span>Доставка</span>
+                                <span>41 222 ₽</span>
+                            </li>
+
+                            <li class="total__row">
+                                <span>Дата</span>
+                                <span>01-03июля</span>
+                            </li>
+
+                            <li class="total__row">
+                                <span>Оплата</span>
+                                <span>41 222 ₽</span>
+                            </li>
+                        </ul>
+
+                        <div class="total__order">
+                            <button class="total__submit">Оформить заказ</button>
+                            <label class="total__agree">
+                                <input type="checkbox" name="agree" required>
+                                <span>Согласен с <a class="total__agree-link" href="">условиями</a> правил
+                                    пользования торговой площадкой и&nbsp; правилами возврат</span>
+                                <!-- &nbsp; чтобы слова не переносиилсь-->
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
                 <section class="cart__address address">
                     <h3 class="cart__title">Адрес доставки</h3>
 
                     <form class="address__form">
                         <label>
-                            <!--обренем список в label чтобы не ругался валидатор-->
+                            <!--обернем список в label чтобы не ругался валидатор-->
                             <select class="address__item address__item--select" name="city">
                                 <option value="" disabled selected>Город</option>
                                 <option value="Moscow">Москва</option>
@@ -163,57 +212,9 @@
                 </section>
 
 
-                <section class="cart__total">
-                    <!--блок Итого-->
-                    <h3 class="visually-hidden">Итого</h3>
 
-                    <ul class="total__table">
-                        <li class="total__row total__row--header">
-                            <span>Итого</span>
-                            <span>41 222 ₽</span>
-                        </li>
-
-                        <li class="total__row total__row--grey">
-                            <span>Товары, 3 шт.</span>
-                            <span>41 222 ₽</span>
-                        </li>
-
-                        <li class="total__row total__row--grey">
-                            <span>Скидка</span>
-                            <span>41 222 ₽</span>
-                        </li>
-
-                        <li class="total__row total__row--grey">
-                            <span>Доставка</span>
-                            <span>41 222 ₽</span>
-                        </li>
-
-                        <li class="total__row">
-                            <span>Дата</span>
-                            <span>01-03июля</span>
-                        </li>
-
-                        <li class="total__row">
-                            <span>Оплата</span>
-                            <span>41 222 ₽</span>
-                        </li>
-                    </ul>
-
-                    <div class="total__order">
-                        <button class="total__submit">Оформить заказ</button>
-                        <label class="total__agree">
-                            <input type="checkbox" name="agree">
-                            <span>Согласен с <a class="total__agree-link" href="">условиями</a> правил
-                                пользования торговой площадкой и&nbsp; правилами возврат</span>
-                            <!-- &nbsp; чтобы слова не переносиилсь-->
-                        </label>
-                    </div>
-
-                </section>
             </div>
         </section>
-
-
     </main>
 
     <svg style="display: none" width="32" height="32">
