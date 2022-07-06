@@ -1,0 +1,74 @@
+.card {
+    margin-bottom: 70px;
+
+    &__details {
+        display: flex;
+        gap: 30px;
+    }
+
+    &__gallery {
+        max-width: 710px;
+
+    }
+
+    //.card-gallery {}
+
+
+
+    &__image {
+        margin-bottom: 20px;
+    }
+
+
+    &__slider-thumb {
+        // маленький слайдер
+        max-width: 447px;
+        margin: 0 auto;
+    }
+
+    &__thumb-btn {
+        // button
+        width: 120px;
+        height: 120px;
+        background-color: transparent;
+        border: none;
+
+    }
+
+
+
+    &__info {
+        width: 100%;
+        padding-top: 120px;
+    }
+
+    &__title {}
+
+    &__vendor-code {}
+
+    &__control {}
+
+    &__count {}
+
+    &__btn {}
+
+    &__btn--dec {}
+
+    &__number {}
+
+    &__btn--inc {}
+
+    &__price {}
+
+    &__add-cart {}
+
+    &__param-list {}
+
+    &__params-item {}
+
+    &__description {}
+
+    &__description-title {}
+
+    &__description-text {}
+}

@@ -22,6 +22,7 @@ body {
 
 img,
 svg {
+    display: block;
     max-width: 100%;
     max-height: 100%; // для svg, если испльозавть спрайт
     height: auto;
