@@ -14,13 +14,13 @@
         display: block;
         width: 18px;
         height: 18px;
-        background-image: url('img/arrow-right.svg');
+        background-image: url('img/arrow-right.svg'); // иконка стрелки
         background-repeat: no-repeat;
         background-position: center;
 
 
         &--start {
-            transform: rotate(180deg); // левая стрелка повернется влево
+            transform: rotate(180deg); //  стрелка повернется влево
         }
 
         &--end {}

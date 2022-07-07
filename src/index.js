@@ -6,6 +6,28 @@ import './index.scss';
 import Swiper, { Thumbs, Scrollbar } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/scrollbar'; // scrollbar-горизонтальная лииния
+import { pagination } from './modules/pagination.js';
+
+const paginataionWrapper = document.querySelector('.pagination'); // оберка  блока пагинации
+
+const pageURL = new URL(location); // location.href;  урл  страницы
+//console.log('pageURL ', pageURL);
+
+// "+" превращает из строки в число
+const page = +pageURL.searchParams.get('page') || 1; // номер текущей страницы, получим значнеие параметра page, если не получим то 1
+
+try {
+    pagination(paginataionWrapper, 20, page, 6); //  вызов фукнции, передаем число страниц(20), page=номер текущй страницы, сколкь мах станиц отображать(6) и обертку станицы(элементс .pagination)
+} catch (error) {
+    console.warn(error);
+    console.warn('Это не главная страница');
+}
+
+
+
+
+
+
 
 
 const thumbSwiper = new Swiper('.card__slider-thumb', {

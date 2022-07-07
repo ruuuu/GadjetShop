@@ -84,6 +84,11 @@
         line-height: 100%;
     }
 
+    &__thumb-btn--active {
+        outline: 2px solid $color-main;
+
+    }
+
     &__btn--dec {}
 
 
@@ -116,8 +121,6 @@
         color: #FFFFFF;
         background-color: $color-main;
         border: none;
-
-        // width: 100%;
     }
 
     &__param-list {
