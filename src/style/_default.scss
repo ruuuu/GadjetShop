@@ -88,6 +88,14 @@ iframe {
     max-width: 1880px;
     padding: 0 30px; // чтоб контенет не прижмался к краям страницы
     margin: 0 auto;
+
+    @include desktop {
+        // вызываем миксин с названием desktop
+        max-width: 1480px;
+
+    }
+
+
 }
 
 main {
