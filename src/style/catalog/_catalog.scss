@@ -7,16 +7,28 @@
         line-height: 54px;
     }
 
+
+
     &__container {
         display: grid;
         grid-template-columns: 4fr 340px; // 4 колонки под Каталог, 1 колонка под Фильры
+        gap: 72px 30px;
+
+        @include desktop {
+            // > 1600px;
+            grid-template-columns: 3fr 340px; // 4 колонки под Каталог, 1 колонка под Фильры
+            column-gap: 20px;
+        }
 
     }
+
+
 
     &__goods {
 
         margin-bottom: 72px;
     }
+
 
 
     &__filter {}
@@ -31,4 +43,5 @@
 
 }
 
-// чтобы прижать грид элемент к ячейке, используют свойтсво justify-self
+// чтобы горизонтально выравнить грид элемент относительно ячейки, используют свойтсво justify-self: start/end/center
+// чтобы вертиклаьно  выравнить грид элемент относительно ячейки, используют свойтсво align-self: start/end/center 

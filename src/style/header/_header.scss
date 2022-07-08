@@ -1,35 +1,111 @@
 .header {
-    padding-top: 26px;
-    padding-bottom: 26px;
+    padding: 26px 0;
+
+    @include mobile {
+        // вместо ттго чтобы писать @media (max-width: 560px), пишем @include mobile{}
+        // <560px
+        padding: 15px 0;
+
+    }
+
+
 
     &__container {
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
         gap: 30px;
 
+        @include desktop {
+            // < 1600px
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+
+        @include laptop {
+            // < 1200px
+            grid-template-columns: 1fr 3fr 2fr;
+
+        }
+
+        @include tablet {
+            // < 1000px
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+
+        }
+
+        @include mobile {
+            // < 560px
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
     }
+
+
+
+    &__logo-link {
+        // грид элемент
+        justify-self: start; // грид элемент прижмется к левому краю  грид-ячейки(гор выраваниевание), align-self - для вертк выравнивания
+    }
+
+
 
     &__logo {
         display: block;
+
+        @include mobile {
+            // < 560px
+            width: 56px;
+            height: 28px;
+        }
     }
+
+
 
     &__seacrh {
         //грид элемент
-        justify-self: center; // выравнили по центру (по горизонтали)
-    }
+        max-width: 818px;
+        justify-self: center; //  грид элемент по центру грид-ячейки. align-self - для вертк выравнивания
 
+        @include desktop {
+            // < 1600px
+            justify-self: start;
+            max-width: 600px;
+        }
+
+        @include laptop {
+            // < 1024px
+            max-width: 100%;
+        }
+
+        @include tablet {
+            // < 560px
+            order: 1; // для флекс элемента
+            grid-column: span 2;
+        }
+
+    }
 
 
 
     &__nav {
         //грид элемент, котрый флекс бокс
-        justify-self: end; // выравнили по правому карю (по горизонтали)
+        justify-self: end; // грид элемент прижмется к правому краю  грид-ячейки. align-self - для вертк выравнивания
         align-items: center; //выравнили по вертикали
         display: flex;
         justify-content: space-between;
         max-width: 330px;
         width: 100%;
+
+
+        @include mobile {
+            // < 560px
+            max-width: 212px;
+        }
     }
+
+
 
     &__phone {
         display: flex;
@@ -40,7 +116,16 @@
         font-size: 18px;
         line-height: 22px;
 
+        @include mobile {
+            // < 560px
+            font-size: 14px;
+            line-height: 17px;
+        }
+
     }
+
+
+
 
     &__cart {}
 }

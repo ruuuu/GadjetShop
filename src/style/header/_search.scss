@@ -1,8 +1,13 @@
 .search {
     width: 100%;
-    max-width: 818px;
     height: 50px;
     position: relative; // кнопку поиска будем позиционировать относительно этого элемента
+
+    @include mobile {
+        // < 560px
+        height: 44px;
+    }
+
 
 
     &__input {
@@ -16,7 +21,14 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 20px;
+
+        @include mobile {
+            // < 560px
+            padding-right: 44px;
+        }
     }
+
+
 
     &__button {
         position: absolute;
@@ -27,5 +39,11 @@
         background-color: transparent;
         line-height: 0; // чтоб вниз место под иконкой убралось
 
+
+        @include mobile {
+            // < 560px
+            right: 10px;
+
+        }
     }
 }

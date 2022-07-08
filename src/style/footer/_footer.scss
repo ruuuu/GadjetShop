@@ -1,45 +1,120 @@
 .footer {
 
-
     padding-top: 80px;
     padding-bottom: 80px;
     background-color: $color-primary;
     color: $color-secondary;
+
 
     &__container {
         display: grid;
         grid-template-columns: 1fr 2fr 1fr 1fr;
         gap: 30px;
         margin-bottom: 50px;
+
+        grid-template-areas:
+            "logo catalog catalog customer contacts" // 1 строка, 5 столбцов. Если ячейка пустая, то  ставим точку "."
+        ;
+
+
+        @include laptop {
+            // < 1200px
+            //grid-template-columns: ;
+
+            grid-template-areas:
+                "logo . . . . ." // 1 строка, 5 столбцов.   Если ячейка пустая, то  ставим точку "."
+                "catalog  catalog customer customer contacts contacts"
+            ;
+        }
+
+
+        @include tablet {
+            // < 1000px
+            grid-template-columns: 1fr 1fr;
+
+            grid-template-areas:
+                "logo . " //   Если ячейка пустая, то  ставим точку "."
+                "catalog customer"
+                "catalog contacts"
+            ;
+        }
+
+
+        @include mobile {
+            // < 560px
+            grid-template-columns: 1fr;
+
+            grid-template-areas:
+                "logo" //   Если ячейка пустая, то  ставим точку "."
+                "catalog"
+                "customer"
+                "contacts"
+            ;
+        }
     }
 
 
 
     &__logo-link {
         // грид элемент
-        justify-self: start; // выравнивание грид элеметна по горизонтали относительно ячейки
-        align-self: start; // выравнивание грид элеметна по вертикали относительно ячейки
+        justify-self: start; // выравнивание грид элемета по горизонтали относительно ячейки
+        align-self: start; // выравнивание грид элемета по вертикали относительно ячейки
         // либо эти два свойсва можно запиcать одним: place-self: start
+
+        grid-area: logo;
     }
+
+
 
     &__logo {
         width: 146px;
 
-
     }
+
+
 
     &__column {
         // грид элемент
 
     }
 
-    &__column-title {
-        margin-bottom: 40px;
 
+
+    &__catalog {
+        // грид элемент
+        grid-area: catalog;
+    }
+
+
+
+    &__customer {
+        // грид элемент
+        grid-area: customer;
+    }
+
+
+
+    &__contacts {
+        // грид элемент
+        grid-area: contacts;
+    }
+
+
+    &__column-title {
+
+        margin-bottom: 40px;
         font-weight: 700;
         font-size: 32px;
         line-height: 130%;
+
+        @include mobile {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 130%;
+        }
     }
+
+
 
     &__list {
 
@@ -49,6 +124,12 @@
 
         &--double {
             column-count: 2; // разделит на 2 колонки
+
+            @include tablet {
+                column-count: auto;
+
+            }
+
         }
     }
 
@@ -64,8 +145,8 @@
         &:last-child {
             margin-bottom: 0;
         }
-
     }
+
 
 
     &__link {
@@ -86,6 +167,7 @@
     }
 
 
+
     &__container-bottom {
         display: flex;
         justify-content: space-between;
@@ -94,13 +176,24 @@
         font-size: 16px;
         line-height: 130%;
 
+        @include mobile {
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+        }
     }
 
-    &__right-part p:first-child {
-        margin-bottom: 10px;
+
+
+    &__right-part {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
-
-
+    // &__right-part p:first-child {
+    //     margin-bottom: 10px;
+    // }
 
 }
