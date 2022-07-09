@@ -4,7 +4,6 @@
     align-items: center;
     gap: 21px;
 
-
     font-size: 18px;
     line-height: 22px;
     color: $color-primary;
@@ -24,6 +23,7 @@
         }
 
         &--end {}
+
 
         &[href=""] {
             opacity: 0.5;

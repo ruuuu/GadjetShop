@@ -3,9 +3,19 @@
     max-width: 340px;
     padding-top: 78px;
 
+
+    @include tablet {
+        // < 1000px;
+        display: none;
+    }
+
+
+
     &__form {
         position: relative; // относительно фильтра позиционируем кнопку Очистть все
     }
+
+
 
     &__titile {
         font-style: normal;
@@ -41,6 +51,7 @@
 
     &__flex {
         display: flex;
+        justify-content: space-between;
         gap: 10px;
 
         &--column {
@@ -48,7 +59,6 @@
             font-weight: 400;
             font-size: 16px;
             line-height: 20px;
-
         }
     }
 
@@ -62,6 +72,10 @@
         line-height: 20px;
         border: 1px solid $color-primary;
 
+        @include laptop {
+            width: 145px;
+        }
+
         &::placeholder {
             color: $color-grey;
         }
@@ -71,6 +85,9 @@
             width: 100%;
             color: $color-grey;
         }
+
+
+
     }
 
 
@@ -90,6 +107,8 @@
         line-height: 20px;
         border: none;
     }
+
+
 
     &__reset {
         position: absolute;

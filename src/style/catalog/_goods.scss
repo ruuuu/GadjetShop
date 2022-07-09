@@ -1,6 +1,7 @@
 .goods {
 
     &__list {
+        // грид элемент, который вяляется  сам грид контенйером
 
         // display: flex;
         // flex-wrap: wrap;
@@ -8,14 +9,34 @@
 
         // а можно через гриды:
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(310px, 340px)); //  число колонок завист от ширины экрана, но ширин колонок всегда от 310px  до 340px
+        grid-template-columns: repeat(auto-fill, minmax(310px, 340px)); //  число колонок завист от ширины экрана, но ширина колонок всегда от 310px  до 340px
         gap: 40px 30px;
+
+        @include desktop {
+            // < 1600px;
+            gap: 20px;
+            justify-content: space-evenly;
+        }
+
+        @include laptop {
+            // < 1200px;
+            grid-template-columns: repeat(auto-fill, 310px);
+        }
+
+        @include mobile {
+            // < 560px;
+            grid-template-columns: repeat(auto-fill, 145px);
+            gap: 10px;
+        }
+
+
     }
+
+
 
     &__item {
         // карточка товара, грид элемент
-        min-width: 310px;
-        max-width: 340px;
+
     }
 
 

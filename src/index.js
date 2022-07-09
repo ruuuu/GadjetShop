@@ -15,9 +15,38 @@ const pageURL = new URL(location); // location.href;  урл  страницы
 
 // "+" превращает из строки в число
 const page = +pageURL.searchParams.get('page') || 1; // номер текущей страницы, получим значнеие параметра page, если не получим то 1
+let isMobile = false; //  не моб версия
+
+
+
+
+const startPagination = () => {
+    if (window.innerWidth < 560) { // windows- наш бразуер, innerWidth его ширина
+        pagination(paginataionWrapper, 20, page, 4);
+        isMobile = true;
+    }
+    else {
+        pagination(paginataionWrapper, 20, page, 6); //  вызов фукнции, передаем число страниц(20), page=номер текущй страницы, сколкь мах станиц отображать(6) и обертку станицы(элементс .pagination)
+        isMobile = false;
+    }
+};
+
+
 
 try {
-    pagination(paginataionWrapper, 20, page, 6); //  вызов фукнции, передаем число страниц(20), page=номер текущй страницы, сколкь мах станиц отображать(6) и обертку станицы(элементс .pagination)
+    startPagination();
+
+    window.addEventListener('resize', () => { // событе resize - изменение размера окна бразера 
+        if (window.innerWidth <= 560 && !isMobile) { // windows- наш бразуер, innerWidth его ширина
+            pagination(paginataionWrapper, 20, page, 4);
+            isMobile = true;
+        }
+        if (window.innerWidth > 560 && isMobile) {
+            pagination(paginataionWrapper, 20, page, 6); //  вызов фукнции, передаем число страниц(20), page=номер текущй страницы, сколкь мах станиц отображать(6) и обертку станицы(элементс .pagination)
+            isMobile = false;
+        }
+    });
+
 } catch (error) {
     console.warn(error);
     console.warn('Это не главная страница');

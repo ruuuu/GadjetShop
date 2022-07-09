@@ -24,7 +24,8 @@ const createItemPagination = (hrefLink, textContent, active) => {
 
 
 //           pagination(paginataionWrapper, 20, page, 6)
-export const pagination = (wrapper, pages, page, count) => { // pages- колво страниц, page-№ тек страницы
+export const pagination = (wrapper, pages, page, count) => { // pages- колво страниц, page-№ тек страницы   
+    wrapper.textContent = '';//  очищаем обертку
 
     const paginationList = document.createElement('ul'); // <ul></ul>
     paginationList.classList.add('pagination__list');

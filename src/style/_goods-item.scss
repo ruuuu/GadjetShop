@@ -1,5 +1,5 @@
 .goods-item {
-    min-height: 450px;
+    min-height: 450px; // для переполенеия чтоб текст не вылезал из карточки
     width: 100%;
     height: 100%; // чтобы при наполнении большим числом текста, кнопки в картчоках не уезжали вниз, а были на одном уровне
 
@@ -9,17 +9,48 @@
     gap: 10px;
 
 
+    @include laptop {
+        min-height: 420px;
+    }
+
+    @include mobile {
+        min-height: 252px;
+    }
+
+
+
+    &__link {
+        margin-bottom: 10px;
+    }
+
+
+
     &__image {
         display: block;
         width: 100%;
         margin-bottom: 10px;
+
+        @include mobile {
+            min-height: 5px;
+
+        }
     }
+
 
     &__title {
         font-weight: 500;
         font-size: 22px;
         line-height: 27px;
+
+        @include mobile {
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+
+        }
     }
+
 
     &__buy {
         display: flex;
@@ -27,13 +58,29 @@
         align-items: center;
         gap: 5px;
 
+        @include mobile {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            padding-right: 0;
+        }
     }
+
+
 
     &__proce {
         font-weight: 700;
         font-size: 22px;
         line-height: 27px;
+
+        @include mobile {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+        }
     }
+
+
 
     &__to-cart {
         padding: 8px 20px;
@@ -42,5 +89,11 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 20px;
+
+        @include mobile {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+        }
     }
 }
