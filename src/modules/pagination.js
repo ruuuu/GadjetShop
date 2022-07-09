@@ -24,7 +24,7 @@ const createItemPagination = (hrefLink, textContent, active) => {
 
 
 //           pagination(paginataionWrapper, 20, page, 6)
-export const pagination = (wrapper, pages, page, count) => { // pages- колво страниц, page-№ тек страницы   
+const pagination = (wrapper, pages, page, count) => { // pages- колво страниц, page-№ тек страницы   
     wrapper.textContent = '';//  очищаем обертку
 
     const paginationList = document.createElement('ul'); // <ul></ul>
@@ -72,11 +72,38 @@ export const pagination = (wrapper, pages, page, count) => { // pages- колв�
 
 
     wrapper.append(firstItem, paginationList, lastItem); // порядок добавления элементов имеет значение!!!
-
-
-
-
 };
+
+
+
+
+
+export const startPagination = (paginataionWrapper, pages, page) => { // pages- число страниц в  блоке пагинация
+    let isMobile = false; //  не моб версия
+
+    if (window.innerWidth < 560) { // windows- наш бразуер, innerWidth его ширина
+        pagination(paginataionWrapper, pages, page, 4); // wrapper, pages, page, count
+        isMobile = true;
+    }
+    else {
+        pagination(paginataionWrapper, pages, page, 6); //  вызов фукнции, передаем число страниц(20), page=номер текущй страницы, сколкь мах станиц отображать(6) и обертку станицы(элементс .pagination)
+        isMobile = false;
+    }
+
+
+    window.addEventListener('resize', () => { // событе resize - изменение размера окна бразера 
+        if (window.innerWidth <= 560 && !isMobile) { // windows- наш бразуер, innerWidth его ширина
+            pagination(paginataionWrapper, 20, page, 4);
+            isMobile = true;
+        }
+        if (window.innerWidth > 560 && isMobile) {
+            pagination(paginataionWrapper, 20, page, 6); //  вызов фукнции, передаем число страниц(20), page=номер текущй страницы, сколкь мах станиц отображать(6) и обертку станицы(элементс .pagination)
+            isMobile = false;
+        }
+    });
+};
+
+
 
 
 

@@ -1,0 +1,1 @@
+export const API_URI = 'http://localhost:3024/'; // перейти в папку сервера и  запутсить в терминале команду node index
