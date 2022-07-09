@@ -2,6 +2,12 @@
 
     &__title {
         margin-bottom: 40px;
+
+        @include mobile {
+            margin-bottom: 20px;
+        }
+
+
     }
 
     &__list {}

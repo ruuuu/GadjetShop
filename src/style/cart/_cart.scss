@@ -5,25 +5,56 @@
         display: grid;
         grid-template-columns: 3fr 2fr;
         justify-content: space-between;
-        gap: 70px 30px; // между столбцами 70 px, между рядами 30px
+        gap: 70px 30px; // между столбцами 70px, между рядами 30px
+
+        @include desktop {
+            // < 1600px
+            grid-template-columns: minmax(59%, 848px) minmax(34%, 494px);
+            column-gap: 20px;
+
+        }
+
+        @include laptop {
+            // < 1200px
+            grid-template-columns: 1fr;
+            row-gap: 50px;
+
+        }
+
+
     }
 
 
-    &__address {}
+    &__address {
+        // // грид элемент
+    }
 
 
 
     &__title {
-        margin-bottom: 40px;
+
         font-weight: 700;
         font-size: 44px;
         line-height: 54px;
+
+        @include mobile {
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 37px;
+
+        }
     }
 
 
 
     &__total {
+        // грид элемент
         padding-top: 94px;
+
+        @include laptop {
+            padding-top: 0;
+            order: 1;
+        }
     }
 
 

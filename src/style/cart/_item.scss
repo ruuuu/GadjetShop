@@ -2,6 +2,15 @@
     display: flex;
     align-items: center;
 
+    @include mobile {
+        // < 560px
+        position: relative; // позиционируем относительно этго элемента(родитель) Крестик
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-right: 18px;
+        gap: 18px 20px;
+    }
+
 
 
     &__img {
@@ -10,29 +19,92 @@
         height: 200px;
         object-fit: cover; //если картинка имеет большие размеры то оно подстроится под размеры  200х200
         margin-right: 30px;
+
+        @include desktop {
+            // < 1600px
+            width: 137px;
+            height: 137px;
+        }
+
+        @include tablet {
+            // <1000px
+            width: 104px;
+            height: 104px;
+            margin-right: 18px;
+        }
+
+        @include mobile {
+            margin-right: 0;
+        }
+
     }
+
+
 
     &__detail {
         // флекс элемент
         display: flex;
         flex-direction: column;
-        flex-basis: 353px; // базова ширина, если мета не будет,  то флекс-элемент сожмется
+        flex-basis: 353px; // базова ширина, если места не будет, то флекс-элемент сожмется, если будет место,  то увелится
         min-width: 353px;
         padding-top: 28px;
         margin-right: 25px;
+
+        @include desktop {
+            // < 1600px
+            flex-basis: 320px; // базовая ширина, если места не будет,  то флекс-элемент сожмется
+        }
+
+        @include tablet {
+            // < 1000px
+            flex-basis: 160px;
+            margin-right: 7px;
+            padding-top: 0;
+        }
+
+        @include mobile {
+            margin-right: 0;
+        }
     }
+
 
 
     &__title {
         min-height: 54px; // для переполнения текстом
         margin-bottom: 13px;
+
+        @include desktop {
+            // < 1600px
+            min-height: auto;
+        }
+
+        @include tablet {
+            margin-bottom: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+        }
+
+
+
     }
+
+
+
 
     &__vendor-code {
         font-weight: 500;
         font-size: 18px;
         line-height: 22px;
+
+        @include tablet {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+        }
     }
+
+
 
     &__control {
         // флекс элемент
@@ -41,7 +113,12 @@
         align-items: center;
         align-self: center; // выравнивает флекс элемент по вертикали
         flex-grow: 1; // растягиваем флекс элемент
+        gap: 10px;
 
+        @include mobile {
+            justify-content: flex-start;
+            gap: 39px;
+        }
     }
 
 
@@ -52,8 +129,10 @@
         align-items: center;
         max-width: 120px;
         width: 100%;
-        margin-right: 70px;
+        gap: 10px;
+
     }
+
 
 
     &__btn {
@@ -67,29 +146,61 @@
         line-height: 100%;
     }
 
+
+
     &__btn--dec {}
+
+
 
     &__number {
         font-weight: 400;
         font-size: 30px;
         line-height: 37px;
+
+        @include tablet {
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 27px;
+        }
     }
+
+
 
     &__btn--inc {}
 
+
+
+
     &__price {
         margin-right: 70px;
+        white-space: nowrap;
         font-weight: 500;
         font-size: 22px;
         line-height: 27px;
     }
 
+
+
+
     &__remove-cart {
+        // кнопка Крестик
+        min-width: 32px;
         width: 32px;
         height: 32px;
         border: none;
         background-color: transparent;
         color: $color-grey-light;
+
+
+        @include mobile {
+            position: absolute;
+            top: 2px;
+            right: 0;
+
+            min-width: 18px;
+            width: 18px;
+            height: 18px;
+        }
     }
 
 }

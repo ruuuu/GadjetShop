@@ -1,19 +1,54 @@
 .address {
 
+    @include desktop {
+        // < 1600px
+        max-width: 700px;
+    }
+
+    @include laptop {
+        // < 1200px
+        max-width: 100%;
+    }
+
+
     &__title {
         margin-bottom: 30px;
+
+        @include mobile {
+            margin-bottom: 20px;
+        }
     }
+
+
+
 
     &__form {
         display: grid;
-        grid-template-columns: 340px 340px 340px;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 30px;
         font-weight: 400;
         font-size: 16px;
         line-height: 20px;
         color: $color-grey;
 
+        @include desktop {
+            // < 1600px
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @include tablet {
+            gap: 10px;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
+
     }
+
+
+
 
     &__item {
         display: block;
@@ -22,9 +57,20 @@
         border: 1px solid $color-primary;
         outline: none;
         width: 100%;
+
+        @include tablet {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+        }
     }
 
+
+
+
     &__item--select {}
+
+
 
     &__item-btn {
         padding: 8px 125px;
@@ -32,15 +78,22 @@
         color: $color-secondary;
     }
 
+
+
     &__label-save {
         // грид элемент
-        grid-column: 3/4;
+        grid-column: -2; // 3/4
         display: flex;
         align-items: center;
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
+
+
     }
+
+
+
 
     &__label-save input {
         margin-right: 8px;

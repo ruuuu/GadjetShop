@@ -39,8 +39,6 @@ try {
 
 
 
-
-
 } catch (error) {
     console.warn(error);
     console.warn('Это не главная страница');

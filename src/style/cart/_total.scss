@@ -1,18 +1,43 @@
 .total {
 
+    @include mobile {
+        position: relative;
+        left: -10px;
+        width: 320px;
+        border-width: 1px 0;
+        border-color: $color-grey;
+        border-style: solid;
+        border-radius: 0;
+        padding: 15px 10px 25px;
+    }
+
     &__wrapper {
         border: 1px solid $color-grey;
         border-radius: 20px;
         padding: 40px 20px;
+
+        @include laptop {
+            // <1200 
+            max-width: 494px;
+            margin: 0 auto;
+        }
+
+        @include mobile {
+            border-width: 0;
+            padding: 0;
+        }
     }
-
-
 
 
 
     &__table {
         margin-bottom: 50px;
+
+        @include mobile {
+            margin-bottom: 25px;
+        }
     }
+
 
 
     &__row {
@@ -26,12 +51,20 @@
         line-height: 22px;
         color: $color-grey;
 
+
+        @include mobile {
+            margin-bottom: 10px;
+            padding: 0;
+        }
+
         &:last-child {
             margin-bottom: 0;
         }
 
         &--header {
             margin-bottom: 27px;
+            padding-left: 10px;
+            padding-right: 10px;
             padding-bottom: 10px;
             font-weight: 700;
             font-size: 22px;
@@ -39,17 +72,31 @@
             color: $color-primary;
             border-bottom: 2px solid $color-grey;
 
+            @include mobile {
+                position: relative;
+                left: -10px;
+                width: 320px;
+                padding-bottom: 4px;
+                margin-bottom: 14px;
+            }
+
         }
 
         &--grey {
             color: $color-grey;
+
         }
 
         &--gap {
             margin-bottom: 40px;
+
+            @include mobile {
+                margin-bottom: 25px;
+            }
         }
 
     }
+
 
 
     &__order {
@@ -57,7 +104,16 @@
         align-items: center;
         justify-content: space-between;
         gap: 17px;
+
+        @include desktop {
+            // < 1600px
+            flex-wrap: wrap;
+            max-width: 352px;
+            margin: 0 auto;
+
+        }
     }
+
 
 
     &__submit {
@@ -72,7 +128,14 @@
         color: #FFFFFF;
         background-color: $color-main;
         border: none;
+
+        @include mobile {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+        }
     }
+
 
 
     &__agree {
@@ -85,7 +148,14 @@
         font-size: 14px;
         line-height: 17px;
         color: $color-grey;
+
+        @include mobile {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 15px;
+        }
     }
+
 
 
     &__agree-link {
