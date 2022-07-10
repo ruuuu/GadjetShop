@@ -1,6 +1,10 @@
 .card {
     margin-bottom: 70px;
 
+    position: relative; // относительно этого элемента расположим лоадер
+    min-height: 80vh; // 80% vh- вьюпорт
+
+
     &__details {
         display: flex;
         gap: 30px;
@@ -149,5 +153,28 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 140%;
+    }
+
+
+    &__preload {
+        // лоадер
+        position: absolute;
+        top: 0; //  можно все 4 свойтсва объдинить так: inset:0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        z-index: 100; // чтоб картинка не перекрывала лоадер
+        background-color: $color-secondary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        svg {
+            transform: rotate(0);
+            animation: rotation 0.3s infinite ease-in-out; // rotaion-название анимации
+        }
+
     }
 }

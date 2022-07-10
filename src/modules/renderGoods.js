@@ -3,7 +3,7 @@ import { API_URI } from "./var";
 export const renderGoods = (wrapper, goods) => { // wrapper -<ul></ul>
     wrapper.textContent = ''; // очищает спсиок товаров
 
-    const cards = goods.map((item) => { // получим новый массив cards=[<li>...</li>, <li>...</li>,<li>...</li>,<li>...</li>], item=товар {}, map примняет для каждого элеентамассива переданную фукнцию
+    const cards = goods.map((item) => { // получим новый массив cards=[<li>...</li>, <li>...</li>,<li>...</li>,<li>...</li>], item-текущий товар {}, map применяет для каждого элеента массива переданную фукнцию
         console.log(item);
 
         const li = document.createElement('li');

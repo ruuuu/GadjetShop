@@ -56,3 +56,13 @@ $mobile: 560px;
 }
 
 ;
+
+
+@keyframes rotation {
+
+    // вызов этой анимации
+    to {
+        transform: rotate(360deg);
+    }
+
+}
