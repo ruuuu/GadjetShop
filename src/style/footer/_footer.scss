@@ -8,34 +8,34 @@
 
     &__container {
         display: grid;
-        grid-template-columns: 1fr 2fr 1fr 1fr;
+        grid-template-columns: 1fr 2fr 1fr 1fr; //  4 столбца
         gap: 30px;
         margin-bottom: 50px;
 
         grid-template-areas:
-            "logo catalog catalog customer contacts" // 1 строка, 5 столбцов. Если ячейка пустая, то  ставим точку "."
+            "logo catalog customer contacts" // 1 строка, 5 столбцов. Если ячейка пустая, то  ставим точку "."
+            "copyright . . design"
         ;
-
 
         @include laptop {
             // < 1200px
-            //grid-template-columns: ;
-
+            grid-template-columns: 395px 235px 280px;
             grid-template-areas:
-                "logo . . . . ." // 1 строка, 5 столбцов.   Если ячейка пустая, то  ставим точку "."
-                "catalog  catalog customer customer contacts contacts"
+                "logo . ." // 1 строка, 5 столбцов. Если ячейка пустая, то  ставим точку "."
+                "catalog customer contacts"
+                "copyright . design"
             ;
         }
-
 
         @include tablet {
             // < 1000px
             grid-template-columns: 1fr 1fr;
 
             grid-template-areas:
-                "logo . " //   Если ячейка пустая, то  ставим точку "."
+                "logo ." //   Если ячейка пустая, то  ставим точку "."
                 "catalog customer"
                 "catalog contacts"
+                "copyright design"
             ;
         }
 
@@ -49,6 +49,8 @@
                 "catalog"
                 "customer"
                 "contacts"
+                "copyright"
+                "design"
             ;
         }
     }
@@ -57,18 +59,16 @@
 
     &__logo-link {
         // грид элемент
+        grid-area: logo;
         justify-self: start; // выравнивание грид элемета по горизонтали относительно ячейки
         align-self: start; // выравнивание грид элемета по вертикали относительно ячейки
         // либо эти два свойсва можно запиcать одним: place-self: start
-
-        grid-area: logo;
     }
 
 
 
     &__logo {
         width: 146px;
-
     }
 
 
@@ -80,28 +80,7 @@
 
 
 
-    &__catalog {
-        // грид элемент
-        grid-area: catalog;
-    }
-
-
-
-    &__customer {
-        // грид элемент
-        grid-area: customer;
-    }
-
-
-
-    &__contacts {
-        // грид элемент
-        grid-area: contacts;
-    }
-
-
     &__column-title {
-
         margin-bottom: 40px;
         font-weight: 700;
         font-size: 32px;
@@ -117,10 +96,15 @@
 
 
     &__list {
-
         font-weight: 400;
         font-size: 22px;
         line-height: 150%;
+
+        @include mobile {
+
+            font-size: 14px;
+            line-height: 17px;
+        }
 
         &--double {
             column-count: 2; // разделит на 2 колонки
@@ -129,7 +113,6 @@
                 column-count: auto;
 
             }
-
         }
     }
 
@@ -168,32 +151,49 @@
 
 
 
-    &__container-bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    &__catalog {
+        // грид элемент
+        grid-area: catalog;
+    }
+
+
+
+    &__customer {
+        // грид элемент
+        grid-area: customer;
+    }
+
+
+
+    &__contacts {
+        // грид элемент
+        grid-area: contacts;
+    }
+
+
+
+    &__copyright {
+        grid-area: copyright;
         font-weight: 500;
         font-size: 16px;
         line-height: 130%;
-
-        @include mobile {
-            flex-wrap: wrap;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 30px;
-        }
     }
 
 
 
-    &__right-part {
+    &__design {
+        grid-area: design;
         display: flex;
         flex-direction: column;
         gap: 10px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 130%;
     }
 
-    // &__right-part p:first-child {
-    //     margin-bottom: 10px;
-    // }
+
+
+
+
 
 }

@@ -25,7 +25,7 @@ export const renderGoods = (wrapper, goods) => { // wrapper -<ul></ul>
         return li; // <li>...</li>
     });
 
-    //  кнопке В корзину добавили атрибут data-id-goods чтобы запсиывать товар в корзину
+    //  кнопке В корзину добавили атрибут data-id-goods чтобы запсиывать определенный  товар в корзину
 
     console.log('cards ', ...cards); // ... -spread отператор нужен чтобы вытащить каждый элемент массива
 

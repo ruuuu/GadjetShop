@@ -85,7 +85,7 @@
     }
 
     &__thumb-btn--active {
-        outline: 2px solid $color-main;
+        outline: 2px solid $color-main; // outline в отличии от border не сдвигает элемент
 
     }
 

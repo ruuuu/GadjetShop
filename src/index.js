@@ -12,9 +12,9 @@ import { renderGoods } from './modules/renderGoods';
 
 
 try {
-
-    const paginataionWrapper = document.querySelector('.pagination'); // оберка  блока пагинации
     const goodsList = document.querySelector('.goods__list'); //  <ul></ul>, cюда вставляем товары
+    const paginataionWrapper = document.querySelector('.pagination'); // оберка  блока пагинации
+
 
     const pageURL = new URL(location); // location.href;  урл  страницы
     //console.log('pageURL ', pageURL);
@@ -37,11 +37,18 @@ try {
         startPagination(paginataionWrapper, pages, page); // 50- число страниц(котрые в блоке пагинации )
     })
 
-
-
 } catch (error) {
     console.warn(error);
     console.warn('Это не главная страница');
+}
+
+
+
+try {
+
+}
+catch {
+
 }
 
 
