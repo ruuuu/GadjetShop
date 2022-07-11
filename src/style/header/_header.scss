@@ -116,16 +116,35 @@
         font-size: 18px;
         line-height: 22px;
 
+
         @include mobile {
             // < 560px
             font-size: 14px;
             line-height: 17px;
         }
+    }
 
+
+    &__phone svg:hover {
+        color: #0BD072;
+    }
+
+    &__phone svg:active {
+        border: 1px solid #197C00;
+        fill: #04E277;
+        border: none;
     }
 
 
 
 
-    &__cart {}
+    &__cart svg:hover {
+        color: #0BD072;
+    }
+
+    &__cart svg:active {
+        border: 1px solid #197C00;
+        fill: #04E277;
+        border: none;
+    }
 }

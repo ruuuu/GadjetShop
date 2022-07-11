@@ -92,6 +92,21 @@
         line-height: 20px;
         border: 1px solid $color-primary;
 
+        &:hover {
+            border-color: #04E277;
+
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #0BD072;
+        }
+
+        &:active {
+            outline: none;
+            border-color: #0BD072;
+        }
+
         @include laptop {
             width: 145px;
         }
@@ -112,6 +127,15 @@
 
     &__checkbox {
         margin-right: 10px;
+
+        &:hover {
+            border-color: #0BD072;
+        }
+
+        &:active {
+            border-color: #197C00;
+        }
+
     }
 
 
@@ -125,6 +149,22 @@
         font-size: 16px;
         line-height: 20px;
         border: none;
+
+        &:hover {
+            background-color: #0BD072;
+            border-color: #0BD072;
+            color: #fff;
+        }
+
+        &:focus {
+            background-color: #04E277;
+            border-color: #197C00;
+        }
+
+        &:active {
+            background-color: #CDCDCD;
+        }
+
     }
 
 
@@ -139,5 +179,18 @@
         color: $color-grey;
         background-color: transparent;
         border: 0;
+
+        &:hover {
+            color: #04E277;
+        }
+
+        &:focus {
+            color: #04E277;
+        }
+
+        &:active {
+            color: #CDCDCD;
+        }
+
     }
 }

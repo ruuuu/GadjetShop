@@ -86,6 +86,16 @@
         font-weight: 400;
         font-size: 30px;
         line-height: 100%;
+
+        &:hover {
+            background-color: #0BD072;
+        }
+
+        &:active {
+            background: #04E277;
+            border: 1px solid #197C00;
+        }
+
     }
 
     &__thumb-btn--active {
@@ -125,7 +135,18 @@
         color: #FFFFFF;
         background-color: $color-main;
         border: none;
+
+
+        &:hover {
+            background-color: #0BD072;
+        }
+
+        &:active {
+            background: #04E277;
+            border: 1px solid #197C00;
+        }
     }
+
 
     &__param-list {
         font-weight: 500;

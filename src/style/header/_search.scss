@@ -22,6 +22,17 @@
         font-size: 16px;
         line-height: 20px;
 
+
+        &:focus {
+            border: 1px solid #04E277;
+            outline: none;
+        }
+
+        &:active {
+            border: 1px solid #04E277;
+            outline: none;
+        }
+
         @include mobile {
             // < 560px
             padding-right: 44px;
@@ -38,6 +49,18 @@
         border: 0;
         background-color: transparent;
         line-height: 0; // чтоб вниз место под иконкой убралось
+
+        &:hover svg {
+            color: #04E277;
+        }
+
+        &:focus svg {
+            color: #0BD072;
+        }
+
+        &:active svg {
+            color: #0BD072;
+        }
 
 
         @include mobile {
