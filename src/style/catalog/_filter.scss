@@ -16,6 +16,26 @@
     }
 
 
+    &__label-select {
+        position: relative;
+
+        &::after {
+            // псевдоэлемент для галочки выпаддающего спсика
+            content: '';
+            position: absolute;
+            right: 43px;
+            top: 50%; // чтоб по центру было
+            transform: translateY(calc(-50% - 3px)) rotate(45deg); // чтоы поднять наверх
+            display: block; // чтоб воспринимал размеры
+            width: 10px; // размеры галочки
+            height: 10px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: transparent $color-primary $color-primary transparent; // 4 стороны
+        }
+    }
+
+
 
     &__titile {
         font-style: normal;
@@ -81,12 +101,11 @@
         }
 
         &--select {
-            // список Категория 
+            // выпадающий  список Категория 
             width: 100%;
             color: $color-grey;
+            appearance: none; // чтоыб галочка у выпадащего списка "Категрия" исчезла
         }
-
-
 
     }
 

@@ -7,13 +7,13 @@ import 'swiper/css';
 import 'swiper/css/scrollbar'; // scrollbar-горизонтальная лииния
 import { startPagination } from './modules/pagination.js';
 import { getGoods, getGoodsItem } from './modules/goodService';
-import { renderGoods } from './modules/renderGoods';
+import { renderGoods, renderGoods2 } from './modules/renderGoods';
 import { renderItem } from './modules/renderItem';
 
 
-
+// отображение списка товаров:
 try {
-    const goodsList = document.querySelector('.goods__list'); //  <ul class="goods__list"></ul>, cюда вставляем товары
+    const goodsList = document.querySelector('.goods__list'); //  <ul class="goods__list"></ul>, cюда вставляем товары полученные от сервера
     if (goodsList) {
 
         const paginataionWrapper = document.querySelector('.pagination'); // оберка  блока пагинации
@@ -36,7 +36,8 @@ try {
 
         getGoods({ page }).then(({ goods, pages, page }) => { // деструктуризация
             console.log('data ', { goods, pages, page });
-            renderGoods(goodsList, goods); //получаем от сервера  goods = [{},{},{},{},{}]
+            //console.log('goods ', goods);
+            renderGoods(goodsList, goods); // отрисовываем карточки товаров, полученные от сервера  goods = [{},{},{},{},{}]
             startPagination(paginataionWrapper, pages, page); // 50- число страниц(котрые в блоке пагинации )
         })
     }
@@ -48,7 +49,7 @@ catch (error) {
 }
 
 
-
+// отображение карточки товара:
 try {
     const card = document.querySelector('.card');
     if (card) {
@@ -73,12 +74,14 @@ try {
                 renderItem(item); // item - товар {}
                 preload.remove(); // удаляем лоадер
                 return item.category;
-            }) // НАЧАЛИ ОТСЮДА!!!
+            })
             .then((category) => { // item, полученный из предыдущего then()
-                return getGoods({ category });
+                return getGoods({ category }); // получим  [{},{},{},{}] товаров по опр категории от сервера
             })
             .then((data) => { // data - данные который получим из предыдущего then()
-                console.log('спсиок товаров от сервера по опр категории, data ', data);
+                console.log('спсиок товаров от сервера по опр категории, data ', data); // [{},{},{},{}]
+                const goodsRecommendedList = document.querySelector('.recommended__list'); //  <ul></ul> cюда вставляем товары полученные от сервера
+                renderGoods2(goodsRecommendedList, data);
             })
     }
 
@@ -109,14 +112,3 @@ new Swiper('.recommended__carousel', {
 
 
 
-// import code from './img/code.png'
-// import { mult, sum } from './modules/calc';
-
-// const imgWrap = document.querySelector('.img');
-// const img = new Image();
-// img.src = code;
-// img.width = 700;
-// imgWrap.append(img);
-
-// console.log(mult(3, 4));
-// console.log(sum(3, 4));
