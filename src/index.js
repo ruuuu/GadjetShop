@@ -68,11 +68,18 @@ try {
         card.append(preload); //  вставляем в .card preload
 
         getGoodsItem(id)
-            .then(item => { // перебиаем каждый товар, полученный от сервера
+            .then(item => { // перебираем каждый товар, полученный от сервера
                 //console.log(item); // товар - {}
                 renderItem(item); // item - товар {}
                 preload.remove(); // удаляем лоадер
-            });
+                return item.category;
+            }) // НАЧАЛИ ОТСЮДА!!!
+            .then((category) => { // item, полученный из предыдущего then()
+                return getGoods({ category });
+            })
+            .then((data) => { // data - данные который получим из предыдущего then()
+                console.log('спсиок товаров от сервера по опр категории, data ', data);
+            })
     }
 
 }
@@ -80,38 +87,6 @@ catch (error) {
     console.warn(error);
     console.warn('Это не страница с товаром');
 }
-
-
-
-
-
-
-
-
-const thumbSwiper = new Swiper('.card__slider-thumb', {
-    spaceBetween: 44, // расстояние между слайдами
-    slidesPerView: 3,
-    modules: [Scrollbar],
-    scrollbar: {
-        el: '.swiper-scrollbar',
-        draggable: true, // чтоы можно было перетаскивать
-    },
-
-});
-
-
-new Swiper('.card__image', {
-    spaceBetween: 10, // расстояние между слайдами
-    slidesPerView: 1,// сколько слайдев отображать на станице
-    thumbs: {
-        swiper: thumbSwiper,
-        slideThumbActiveClass: 'card__thumb-btn--active',
-    },
-    modules: [Thumbs]
-
-});
-
-
 
 
 
