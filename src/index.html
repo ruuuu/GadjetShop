@@ -94,10 +94,11 @@
                   <div class="filter__flex">
                     <label>
                       <!--for="" не нужен тк input внутри label-->
-                      <input class="filter__input" type="number" name="price-start" placeholder="от">
+                      <input class="filter__input" type="number" step="any" name="minprice" placeholder="от">
+                      <!--step="any" нужен чтобы кууазать диапазон значений -->
                     </label>
                     <label>
-                      <input class="filter__input" type="number" name="price-end" placeholder="до">
+                      <input class="filter__input" type="number" step="any" name="maxprice" placeholder="до">
                     </label>
                   </div>
                 </fieldset>
@@ -107,14 +108,14 @@
                   <legend class="filter__fileld-title">Категория</legend>
 
                   <label class="filter__label-select">
-                    <select class="filter__input filter__input--select" name="category">
-                      <option value="all" disabled selected>Все категории</option>
+                    <select class="filter__input filter__input--select" id="category" name="category">
+                      <option disabled selected>Все категории</option>
                       <!--disabled дизейблим, selected значит выбран по умолчанию-->
-                      <option value="phone">смартфоны</option>
+                      <!-- <option value="phone">смартфоны</option> 
                       <option value="tab">планшеты</option>
                       <option value="clock">умные часы</option>
                       <option value="monoblock">моноблоки</option>
-                      <option value="laptop">ноутбуки</option>
+                      <option value="laptop">ноутбуки</option> эти опции получаем с сервера-->
                     </select>
                   </label>
                 </fieldset>
@@ -126,10 +127,10 @@
                   <div class="filter__flex">
                     <label>
                       <!--for="" не нужен тк input внутри label-->
-                      <input class="filter__input" type="number" name="diagonal-start">
+                      <input class="filter__input" type="number" step="any" name="maxdisplay">
                     </label>
                     <label>
-                      <input class="filter__input" type="number" name="diagonal-end">
+                      <input class="filter__input" type="number" step="any" name="mindisplay">
                     </label>
                   </div>
                 </fieldset>
@@ -209,7 +210,7 @@
         <h3 class="footer__column-title">Каталог</h3>
 
         <ul class="footer__list footer__list--double">
-          <li class="footer__item">
+          <!-- <li class="footer__item">
             <a class="footer__link" href="">Смарофны</a>
           </li>
 
@@ -242,7 +243,7 @@
 
           <li class="footer__item">
             <a class="footer__link" href=""></a>
-          </li>
+          </li> -->
         </ul>
       </div>
 

@@ -9,6 +9,10 @@ import { startPagination } from './modules/pagination.js';
 import { getGoods, getGoodsItem } from './modules/goodService';
 import { renderGoods, renderGoods2 } from './modules/renderGoods';
 import { renderItem } from './modules/renderItem';
+import { filter, filterFooter } from './modules/filter';
+
+
+
 
 
 // отображение списка товаров:
@@ -18,11 +22,8 @@ try {
 
         const paginataionWrapper = document.querySelector('.pagination'); // оберка  блока пагинации
 
-        const pageURL = new URL(location); // location.href;  урл  страницы
-        //console.log('pageURL ', pageURL);
+        filter(goodsList, paginataionWrapper); // фильрация
 
-        // "+" превращает из строки в число
-        const page = +pageURL.searchParams.get('page') || 1; // номер текущей страницы, получим значнеие параметра page, если не получим то 1
 
         // лоадер добавялем
         goodsList.innerHTML = `
@@ -34,7 +35,7 @@ try {
      </div>
     `;
 
-        getGoods({ page }).then(({ goods, pages, page }) => { // деструктуризация
+        getGoods().then(({ goods, pages, page }) => { // деструктуризация
             console.log('data ', { goods, pages, page });
             //console.log('goods ', goods);
             renderGoods(goodsList, goods); // отрисовываем карточки товаров, полученные от сервера  goods = [{},{},{},{},{}]
@@ -42,11 +43,15 @@ try {
         })
     }
 
+
+
+
 }
 catch (error) {
     console.warn(error);
     console.warn('Это не главная страница');
 }
+
 
 
 // отображение карточки товара:
@@ -79,11 +84,13 @@ try {
                 return getGoods({ category }); // получим  [{},{},{},{}] товаров по опр категории от сервера
             })
             .then((data) => { // data - данные который получим из предыдущего then()
-                console.log('спсиок товаров от сервера по опр категории, data ', data); // [{},{},{},{}]
+                //console.log('спсиок товаров от сервера по опр категории, data ', data); // [{},{},{},{}]
                 const goodsRecommendedList = document.querySelector('.recommended__list'); //  <ul></ul> cюда вставляем товары полученные от сервера
                 renderGoods2(goodsRecommendedList, data);
             })
     }
+
+
 
 }
 catch (error) {
@@ -91,7 +98,7 @@ catch (error) {
     console.warn('Это не страница с товаром');
 }
 
-
+filterFooter(); // катгеории в подвале
 
 
 new Swiper('.recommended__carousel', {

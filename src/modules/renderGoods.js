@@ -5,7 +5,7 @@ export const renderGoods = (wrapper, goods) => { // wrapper -<ul class="goods__l
     wrapper.textContent = ''; // очищает список товаров
 
     const cards = goods.map((item) => { // получим новый массив cards=[<li>...</li>, <li>...</li>,<li>...</li>,<li>...</li>], item-текущий товар {}, map применяет для каждого элеента массива переданную фукнцию
-        console.log(item);
+        //console.log(item);
 
         const li = document.createElement('li');
         li.className = 'goods__item';
@@ -28,7 +28,7 @@ export const renderGoods = (wrapper, goods) => { // wrapper -<ul class="goods__l
 
     //  кнопке В корзину добавили атрибут data-id-goods чтобы записывать определенный  товар в корзину
 
-    console.log('cards ', ...cards); // ... -spread отператор нужен чтобы вытащить каждый элемент массива
+    //console.log('cards ', ...cards); // ... -spread отператор нужен чтобы вытащить каждый элемент массива
 
     wrapper.append(...cards); // добавили верстку <li></li> в <ul class="goods__list"></ul>
 
@@ -39,8 +39,8 @@ export const renderGoods = (wrapper, goods) => { // wrapper -<ul class="goods__l
 // goodss объект  { goods: Array(6), page: 1, pages: 1 } от сервера
 export const renderGoods2 = (wrapper, goodss) => { // wrapper - <ul class="recommended__list"></ul>
     wrapper.textContent = '';
-    console.log('goodss from server ', goodss); // получаем объект  { goods: Array(6), page: 1, pages: 1 }
-    console.log('goodss.goods ', goodss.goods);
+    //console.log('goodss from server ', goodss); // получаем объект  { goods: Array(6), page: 1, pages: 1 }
+    //console.log('goodss.goods ', goodss.goods);
 
     const cards = goodss.goods.map((item) => { // перебираем массив товаров от сервера
         console.log('item2 ', item);
@@ -66,8 +66,8 @@ export const renderGoods2 = (wrapper, goodss) => { // wrapper - <ul class="recom
 
     // итого: cards = [ li.swiper-slide.goods__item, li.swiper-slide.goods__item, li.swiper-slide.goods__item ]
     // кнопке В корзину добавили атрибут data-id-goods чтобы запсиывать определенный  товар в корзину
-    console.log('cards ', cards);
-    console.log('...cards ', ...cards); // ... -spread отператор нужен чтобы вытащить каждый элемент(товар) массива, после спреда оператора cards = [ <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li> ]
+    //console.log('cards ', cards);
+    // console.log('...cards ', ...cards); // ... -spread отператор нужен чтобы вытащить каждый элемент(товар) массива, после спреда оператора cards = [ <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li> ]
 
     wrapper.append(...cards); // добавили версnку <li></li> в <ul class="recommended__list"></ul>
 
