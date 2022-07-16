@@ -54,8 +54,12 @@ const pagination = (wrapper, pages, page, count) => { // pages- колво ст�
             }
         }
 
+        const url = new URL(location); // созздаем урл на основе существуюещего, те  есть  localhost/?page=2
 
-        const li = createItemPagination(`index.html?page=${n}`, n, page === n); // n-номер страницы, page-№ текущей страницы
+        console.log('url from pagination', url);
+        url.searchParams.set('page', n); // устананавливаем  query-парамтер page=n
+        //                             `index.html?page=${n}`
+        const li = createItemPagination(url, n, page === n); // n-номер страницы, page-номер страницы  на котрой находимся
         paginationList.append(li);
     }
 
@@ -108,6 +112,3 @@ export const startPagination = (paginataionWrapper, pages, page) => { // pages- 
 
 
 
-//<li class="pagination__item pagination__item--active">
-    //   <a class="pagination__link pagination__link--active" href="">1</a>
-//</li >

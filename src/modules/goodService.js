@@ -16,7 +16,7 @@ export const getGoods = () => { // эта функция отпралвеят з
     const url = new URL(`${API_URI}api/goods`);
     console.log('pageURL.searchParams.entries() ', pageURL.searchParams.entries());
 
-    for (const item of pageURL.searchParams.entries()) { // в ui примеить фильтр, тогда у урле юудет http://localhost:3000/?minprice=2&maxprice=3&category=smartphone&maxdisplay=3&mindisplay=4&color=green
+    for (const item of pageURL.searchParams.entries()) { // в ui примеить фильтр, тогда в урле будет http://localhost:3000/?minprice=2&maxprice=3&category=smartphone&maxdisplay=3&mindisplay=4&color=green
         //console.log('item of emtries ', item); // item = [value, <его значение>], ex: ['minprice', '2'] или ['maxprice', '3'] или ['category', 'smartphone']
         url.searchParams.set(item[0], item[1]);
 
@@ -27,6 +27,7 @@ export const getGoods = () => { // эта функция отпралвеят з
 
     return fetch(url).then(response => response.json()); // отправляем запрс на сервер, получаем промис, обрабатыаем ответ response.json() и получаем массив товаров [{},{},{}]
 };
+
 
 
 

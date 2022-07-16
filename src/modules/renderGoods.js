@@ -1,8 +1,12 @@
 import { API_URI } from "./var";
 
 // goods-[{},{},{}]  полученые от сервера:
-export const renderGoods = (wrapper, goods) => { // wrapper -<ul class="goods__list"></ul>
+export const renderGoods = (wrapper, goods) => { // wrapper это <ul class="goods__list"></ul>
     wrapper.textContent = ''; // очищает список товаров
+
+    if (!goods.length) { // если от сервера ничгео не  пришло, в <ul></ul> добавлям текст
+        wrapper.innerHTML = '<h2>По вашему запросу ничего не найдлено</h2>';
+    }
 
     const cards = goods.map((item) => { // получим новый массив cards=[<li>...</li>, <li>...</li>,<li>...</li>,<li>...</li>], item-текущий товар {}, map применяет для каждого элеента массива переданную фукнцию
         //console.log(item);

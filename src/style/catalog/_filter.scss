@@ -7,6 +7,16 @@
     @include tablet {
         // < 1000px;
         display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 555; // чем больше индекс, тем он выше будет раполгаться  на станице
+        padding: 14px 26px;
+        background-color: $color-secondary;
+
+        &-show {
+            display: block;
+        }
     }
 
 
@@ -43,6 +53,32 @@
         font-size: 26px;
         line-height: 32px;
         margin-bottom: 37px;
+
+        @include tablet {
+            // < 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 5px;
+            margin-left: auto;
+            background-color: transparent;
+            border: none;
+
+            &::after {
+                // псевдоэлемент галочка вниз для кнопки фильтра(выпадашки)
+                content: '';
+                display: block;
+                width: 18px;
+                height: 18px;
+
+                background-image: url('img/filterArrow.svg');
+                transform: rotate(180deg); // перевернули стрелочку вверх
+            }
+
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 27px;
+        }
     }
 
 
@@ -165,6 +201,12 @@
             background-color: #CDCDCD;
         }
 
+        @include tablet {
+            // < 1000px;
+            margin-bottom: 15px;
+
+        }
+
     }
 
 
@@ -190,6 +232,15 @@
 
         &:active {
             color: #CDCDCD;
+        }
+
+
+        @include tablet {
+            // < 1000px;
+            position: static;
+            display: block;
+            margin: 0 auto; //  центруем
+
         }
 
     }

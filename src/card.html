@@ -23,8 +23,9 @@
             </a>
 
 
-            <form class="header__seacrh search">
-                <input class="search__input" type="search">
+            <form action="/" class="header__seacrh search">
+                <!-- action="/" указыаем чобыерейти на главную станицу-->
+                <input class="search__input" type="search" name="search">
 
                 <button class="search__button">
                     <!--кнопка поиска, fill="currentColor" чтобы упарвлять чрез color-->
@@ -46,7 +47,7 @@
                     <span>8 914 923 92 - 23</span>
                 </a>
 
-                <a class="header__cart" href="cart.html">
+                <a class="header__cart" href="cart.html" aria-label="перейти в корзину" data-count="0">
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

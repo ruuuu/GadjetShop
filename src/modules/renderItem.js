@@ -100,7 +100,7 @@ const createParams = (params) => { // ОБЪЕКТ НЕЛЬЗЯ ПЕРЕБРАТ
 };
 
 
-
+// отображение карточик товара
 export const renderItem = (item) => { // item-{} товар полученный от сервера
     console.log('item from server', item);
 

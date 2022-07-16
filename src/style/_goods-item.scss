@@ -37,6 +37,7 @@
     }
 
 
+
     &__title {
         font-weight: 500;
         font-size: 22px;
@@ -50,6 +51,7 @@
 
         }
     }
+
 
 
     &__buy {
@@ -100,9 +102,13 @@
         &:active {
             background-color: #04E277;
             border-color: #197C00;
-
         }
 
+        &--remove {
+            // этот класс будем добавлять кнпоке В корзину, когда товар находится в корзине
+            color: $color-secondary;
+            background-color: $color-primary;
+        }
 
 
         @include mobile {

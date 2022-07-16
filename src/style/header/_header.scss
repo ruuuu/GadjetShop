@@ -125,9 +125,12 @@
     }
 
 
+
     &__phone svg:hover {
         color: #0BD072;
     }
+
+
 
     &__phone svg:active {
         border: 1px solid #197C00;
@@ -136,6 +139,29 @@
     }
 
 
+
+    &__cart {
+        position: relative; // относитлеьо этого элемета располагаем число товаров в корзине
+
+        &:after {
+            // псевдоэлемент- иокнка означающая число товаров в корзине
+            content: attr(data-count); // в версткее  в корзине добавляем data-атрибут data-count, там будем хранить число товаров в корзине
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            width: 20px;
+            height: 20px;
+            background-color: $color-main;
+
+            border-radius: 50%;
+
+            display: flex; // чтоб циформка была посередине
+            align-items: center;
+            justify-content: center;
+
+            font-size: 14px;
+        }
+    }
 
 
     &__cart svg:hover {

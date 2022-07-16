@@ -1,5 +1,10 @@
 .catalog {
 
+    &__container {
+        position: relative; // относительно этого элемента позиционируем выпадашку для фильтра на размервх <=планшета
+    }
+
+
     &__titile {
         margin-bottom: 10px;
         font-weight: 700;
@@ -9,7 +14,7 @@
 
 
 
-    &__container {
+    &__wrapper {
         display: grid;
         grid-template-columns: 4fr 340px; // 4 колонки под Каталог, 1 колонка под Фильтры 340px
         gap: 72px 30px;
@@ -62,6 +67,39 @@
             // < 1000px;
             grid-column: auto;
         }
+    }
+
+
+    &__filter-btn {
+        // кнопка фильтра(стрлочка вниз) для планшетов и меньше 
+        display: none;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 27px;
+
+        @include tablet {
+            // < 1000px;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: transparent;
+            border: none;
+
+            &::after {
+                // псевдоэлемент галочка вниз для кнопки фильтра(выпадашки)
+                content: '';
+                display: block;
+                width: 18px;
+                height: 18px;
+
+                background-image: url('img/filterArrow.svg');
+            }
+        }
+
     }
 
 
