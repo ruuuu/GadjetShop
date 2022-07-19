@@ -10,22 +10,23 @@ import { getGoods, getGoodsItem } from './modules/goodService';
 import { renderGoods, renderGoods2 } from './modules/renderGoods';
 import { renderItem } from './modules/renderItem';
 import { filter, filterFooter } from './modules/filter';
+import { cartControl } from './modules/cartControl';
+import { seviceCounter } from './modules/counterControl';
 
 
 
 
-
-// отображение списка товаров:
+// отображение списка товаров(на index.html):
 try {
     const goodsList = document.querySelector('.goods__list'); //  <ul class="goods__list"></ul>, cюда вставляем товары полученные от сервера
     if (goodsList) {
 
-        const paginataionWrapper = document.querySelector('.pagination'); // оберка  блока пагинации
+        const paginataionWrapper = document.querySelector('.pagination'); // обертка  блока пагинации
 
         filter(goodsList, paginataionWrapper); // фильрация
 
 
-        // лоадер добавялем
+        // лоадер добавялем в goodsList
         goodsList.innerHTML = `
      <div class="goods__preload"> 
         <svg width="256" height="256" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,16 +37,16 @@ try {
     `;
 
         getGoods().then(({ goods, pages, page }) => { // деструктуризация
+
             console.log('data ', { goods, pages, page });
             //console.log('goods ', goods);
-            renderGoods(goodsList, goods); // отрисовываем карточки товаров, полученные от сервера  goods = [{},{},{},{},{}]
+            renderGoods(goodsList, goods); // отрисовываем карточки товаров в goodsList, полученные от сервера  goods = [{},{},{},{},{}]
             startPagination(paginataionWrapper, pages, page); // 50- число страниц(котрые в блоке пагинации )
+
+            // goods-item__to-cart класс кнопки В корзину, goods-item__to-cart--remove клас кнопки Урать из корзины
+            cartControl({ wrapper: goodsList, classAdd: 'goods-item__to-cart', classDelete: 'goods-item__to-cart--remove', }); // передаем объект!
         })
     }
-
-
-
-
 }
 catch (error) {
     console.warn(error);
@@ -73,11 +74,14 @@ try {
 
         card.append(preload); //  вставляем в .card preload
 
+        // получили товары от сервера:
         getGoodsItem(id)
             .then(item => { // перебираем каждый товар, полученный от сервера
                 //console.log(item); // товар - {}
                 renderItem(item); // item - товар {}
                 preload.remove(); // удаляем лоадер
+
+                cartControl({ classAdd: '.card__add-cart', classDelete: '.' }); // перелаем ОБЪЕКТ
                 return item.category;
             })
             .then((category) => { // item, полученный из предыдущего then()
@@ -88,6 +92,11 @@ try {
                 const goodsRecommendedList = document.querySelector('.recommended__list'); //  <ul></ul> cюда вставляем товары полученные от сервера
                 renderGoods2(goodsRecommendedList, data);
             })
+
+
+        seviceCounter({
+            selectorWrapper: '.card__count', selectorNumber: '.card__number', selectDec: '.card__btn--dec', selectInc: '.card__btn--inc',
+        }); // чтобы прнажтии на =/- чило товраов увлиичвалось на станице товара(card.html)
     }
 
 
