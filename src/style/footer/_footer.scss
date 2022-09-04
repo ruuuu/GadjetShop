@@ -13,7 +13,7 @@
         margin-bottom: 50px;
 
         grid-template-areas:
-            "logo catalog customer contacts" // 1 строка, 5 столбцов. Если ячейка пустая, то  ставим точку "."
+            "logo catalog customer contacts" // 1 строка, 4 столбца. Если ячейка пустая, то  ставим точку "."
             "copyright . . design"
         ;
 
@@ -21,7 +21,7 @@
             // < 1200px
             grid-template-columns: 395px 235px 280px;
             grid-template-areas:
-                "logo . ." // 1 строка, 5 столбцов. Если ячейка пустая, то  ставим точку "."
+                "logo . ." // 1 строка, 3 столбцв. Если ячейка пустая, то  ставим точку "."
                 "catalog customer contacts"
                 "copyright . design"
             ;
@@ -45,7 +45,7 @@
             grid-template-columns: 1fr;
 
             grid-template-areas:
-                "logo" //   Если ячейка пустая, то  ставим точку "."
+                "logo"
                 "catalog"
                 "customer"
                 "contacts"
@@ -101,7 +101,6 @@
         line-height: 150%;
 
         @include mobile {
-
             font-size: 14px;
             line-height: 17px;
         }
@@ -190,10 +189,6 @@
         font-size: 16px;
         line-height: 130%;
     }
-
-
-
-
 
 
 }

@@ -20,12 +20,12 @@
 
         @include laptop {
             // < 1200px;
-            grid-template-columns: repeat(auto-fill, 310px);
+            grid-template-columns: repeat(auto-fill, 310px); // 310px-ширина катчоки 
         }
 
         @include mobile {
             // < 560px;
-            grid-template-columns: repeat(auto-fill, 145px);
+            grid-template-columns: repeat(auto-fill, 145px); // 145px-шиирина кратчоки
             gap: 10px;
         }
     }
@@ -43,7 +43,15 @@
 
         svg {
             transform: rotate(0);
-            animation: rotation 0.3s infinite ease-in-out; // rotaion-название анимации
+            animation: rotation 0.3s infinite ease-in-out; // rotaion-название анимации, 0.3s-скорость движения анимации
+        }
+    }
+
+    @keyframes rotation {
+
+        // rotation навагие анимации
+        to {
+            transform: rotate(360deg);
         }
     }
 

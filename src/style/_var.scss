@@ -12,10 +12,10 @@ $tablet: 1000px;
 $mobile: 560px;
 
 
-
+// миксины для разны разрешений:
 @mixin desktop {
 
-    // эту функицю вызываем в  scss
+    // эту функицю вызываем в  scss файлах
 
     @media(max-width: #{$desktop}) {
         @content

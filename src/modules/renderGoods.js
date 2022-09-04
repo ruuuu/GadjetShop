@@ -1,5 +1,8 @@
 import { API_URI } from "./var";
 
+// отображение верстки списка товаров
+
+
 // goods-[{},{},{}]  полученые от сервера:
 export const renderGoods = (wrapper, goods) => { // wrapper это <ul class="goods__list"></ul>
     wrapper.textContent = ''; // очищает список товаров
@@ -8,8 +11,8 @@ export const renderGoods = (wrapper, goods) => { // wrapper это <ul class="go
         wrapper.innerHTML = '<h2>По вашему запросу ничего не найдлено</h2>';
     }
 
-    const cards = goods.map((item) => { // получим новый массив cards=[<li>...</li>, <li>...</li>,<li>...</li>,<li>...</li>], item-текущий товар {}, map применяет для каждого элеента массива переданную фукнцию
-        //console.log(item);
+    const cards = goods.map((item) => { // перебираем массив goods, получим новый массив cards=[<li>...</li>, <li>...</li>, <li>...</li>, <li>...</li>], item-текущий товар {}, map применяет для каждого элеента массива переданную фукнцию
+        //console.log(item); // { id, title, image, price }
 
         const li = document.createElement('li');
         li.className = 'goods__item';
@@ -30,9 +33,9 @@ export const renderGoods = (wrapper, goods) => { // wrapper это <ul class="go
         return li; // <li>...</li>
     });
 
-    //  кнопке В корзину добавили атрибут data-id-goods чтобы записывать определенный  товар в корзину
-
-    //console.log('cards ', ...cards); // ... -spread отператор нужен чтобы вытащить каждый элемент массива
+    //  кнопке "В корзину" добавили атрибут data-id-goods чтобы определять какой товар добавили в корзину
+    // cards = [li.goods__item, li.goods__item, li.goods__item]
+    //console.log('...cards ', ...cards); // ... - spread отператор нужен чтобы вытащить каждый элемент массива, выдаст <li class="goods__item">...</li>, <li class="goods__item">...</li>, <li class="goods__item">...</li>, <li class="goods__item">...</li>
 
     wrapper.append(...cards); // добавили верстку <li></li> в <ul class="goods__list"></ul>
 
@@ -71,7 +74,7 @@ export const renderGoods2 = (wrapper, goodss) => { // wrapper - <ul class="recom
     // итого: cards = [ li.swiper-slide.goods__item, li.swiper-slide.goods__item, li.swiper-slide.goods__item ]
     // кнопке В корзину добавили атрибут data-id-goods чтобы запсиывать определенный  товар в корзину
     //console.log('cards ', cards);
-    // console.log('...cards ', ...cards); // ... -spread отператор нужен чтобы вытащить каждый элемент(товар) массива, после спреда оператора cards = [ <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li> ]
+    // console.log('...cards ', ...cards); // ... - spread отператор нужен чтобы вытащить каждый элемент(товар) массива, после спреда оператора cards = [ <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li> ]
 
     wrapper.append(...cards); // добавили версnку <li></li> в <ul class="recommended__list"></ul>
 

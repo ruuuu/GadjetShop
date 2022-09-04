@@ -70,9 +70,9 @@ const pagination = (wrapper, pages, page, count) => { // pages- колво ст�
     firstItem.href = isNotStart ? 'index.html' : ''; // если не первая станица то на index.html
 
 
-    const lastItem = document.createElement('a'); //  <a></a> для левой стрелки
+    const lastItem = document.createElement('a'); //  <a></a> для правой стрелки
     lastItem.classList.add('pagination__arrow', 'pagination__arrow--end');
-    lastItem.href = isEnd ? '' : `index.html?page=${pages}`; // если не послденяя станица то на index.html
+    lastItem.href = isEnd ? '' : `index.html?page=${pages}`; // если не послденяя станица то на index.html?page=${pages}
 
 
     wrapper.append(firstItem, paginationList, lastItem); // порядок добавления элементов имеет значение!!!
@@ -85,7 +85,7 @@ const pagination = (wrapper, pages, page, count) => { // pages- колво ст�
 export const startPagination = (paginataionWrapper, pages, page) => { // pages- число страниц в  блоке пагинация
     let isMobile = false; //  не моб версия
 
-    if (window.innerWidth < 560) { // windows- наш бразуер, innerWidth его ширина
+    if (window.innerWidth < 560) { // window- наш бразуер, innerWidth его ширина
         pagination(paginataionWrapper, pages, page, 4); // wrapper, pages, page, count
         isMobile = true;
     }
@@ -95,8 +95,8 @@ export const startPagination = (paginataionWrapper, pages, page) => { // pages- 
     }
 
 
-    window.addEventListener('resize', () => { // событе resize - изменение размера окна бразера 
-        if (window.innerWidth <= 560 && !isMobile) { // windows- наш бразуер, innerWidth его ширина
+    window.addEventListener('resize', () => { // событе resize - изменение размера окна браузера 
+        if (window.innerWidth <= 560 && !isMobile) { // windows - наш бразуер, innerWidth его ширина
             pagination(paginataionWrapper, 20, page, 4);
             isMobile = true;
         }

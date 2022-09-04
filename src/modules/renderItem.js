@@ -1,7 +1,10 @@
+// отображение картчоик товара:
+
 import { API_URI } from "./var";
 import Swiper, { Thumbs, Scrollbar } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/scrollbar'; // scrollbar-горизонтальная лииния
+
 
 
 const createCardImageSlider = (largeImages) => { // largeImages = ['img/71114058551-s.jpg', 'img/1114058591-s.jpg'] - массив картинок
@@ -9,26 +12,26 @@ const createCardImageSlider = (largeImages) => { // largeImages = ['img/71114058
     const ul = document.createElement('ul');
     ul.className = 'swiper-wrapper';
 
-    const cardImagesSlides = largeImages.map((url) => { // метод map перебирает массив и возвщадает новый массив cardImagesSlides=[li.swiper-slide, li.swiper-slide, li.swiper-slide], он применяет перданную функцию к каждому элементу массива
+    const cardImagesSlides = largeImages.map((url) => { // метод map перебирает массив и возвщает новый массив cardImagesSlides=[li.swiper-slide, li.swiper-slide, li.swiper-slide], он применяет перданную функцию к каждому элементу массива
         const li = document.createElement('li');
         li.className = 'swiper-slide';
 
-        const img = new Image(); // <img>, а можно было создать чрез createElement('img'), если через объект то можно задвать/менять размеры у изображения
+        const img = new Image(); // <img>, а можно было создать чрез createElement('img'), если через объект  Image() то можно задвать/менять размеры у изображения
         img.src = `${API_URI}${url}`;
-        console.log('картинка ', `${API_URI}${url}`);
+        //console.log('картинка ', `${API_URI}${url}`);
         li.append(img);
-        return li; // <li><img src=""></li>
+        return li; // <li><img src=""></li>, кладем егов массив cardImagesSlides
     });
 
-    ul.append(...cardImagesSlides); // всатвляем сразу мноджество <li></li>, ...-спреад отператор, чтобы вытащить поэлементно из массива 
-    console.log('cardImagesSlides ', cardImagesSlides); // [li.swiper-slide, li.swiper-slide, li.swiper-slide]
-    console.log(...cardImagesSlides); // <li><img></li>
-    console.log(ul);
-    return ul; // <ul><li></li></ul>
+    ul.append(...cardImagesSlides); // всатвляем сразу множество <li></li>, ...-спреад отператор, чтобы вытащить поэлементно из массива 
+    // console.log('cardImagesSlides ', cardImagesSlides); // [li.swiper-slide, li.swiper-slide, li.swiper-slide]
+    // console.log(...cardImagesSlides); // <li><img></li>
+    // console.log(ul);
+    return ul; // <ul><li></li><li></li><li></li><li></li><li></li></ul>
 };
 
 
-
+// для маленького сладйера: smallImages=['img/318480360431-s.jpg', 'img/318480360471-s.jpg', 'img/318480260431-s.jpg']
 const createCardImageThumbSlider = (smallImages) => { // возвращает верстку элементов списка <li><button><img src=""></button></li>
     const ul = document.createElement('ul');
     ul.className = 'swiper-wrapper';
@@ -43,17 +46,17 @@ const createCardImageThumbSlider = (smallImages) => { // возвращает в
 
         const img = new Image(); // <img>, а можно было создать чрез createElement('img')
         img.src = `${API_URI}${url}`;
-        console.log('картинка ', `${API_URI}${url}`);
+        //console.log('картинка ', `${API_URI}${url}`);
         button.append(img);
         li.append(button);
-        return li; // <li><button><img src=""></button></li>
+        return li; // <li><button><img src=""></button><button><img src=""></button><button><img src=""></button></li>
     });
 
     //console.log('массив cardImagesSlides ', cardImagesSlides); // [ li.swiper-slide, li.swiper-slide ]
     //console.log('...cardImagesSlides ', ...cardImagesSlides); // [ <li class="swiper-slide"><button></button></li> ]
     ul.append(...cardImagesSlides); // всатвляем спсиок [ <li></li>, <li></li>, <li></li> ] , ...-спреад отператор, чтобы вытащить поэлементно из массива cardImagesSlides
 
-    return ul; // <ul><li>...</li></ul>
+    return ul; // <ul><li><button><img src=""></button></li></ul>
 };
 
 
@@ -69,18 +72,18 @@ const createDescription = (descriptions) => { // передаем массив [
     }
 
 
-    console.log('list ', list); // [p, p, p]
-    console.log('после спред оператора ', ...list); // [ <p>..</p>, <p>..</p>, <p>..</p>]
+    //console.log('list ', list); // [p, p, p]
+    //console.log('после спред оператора ', ...list); // [ <p>..</p>, <p>..</p>, <p>..</p>]
     return list;
 
 };
 
 
 
-const createParams = (params) => { // ОБЪЕКТ НЕЛЬЗЯ ПЕРЕБРАТЬ С ПОМОЩЬЮ map,  С ПОМОЩЬЮ for each. Можно перебрать с помощью for in
+const createParams = (params) => { // ОБЪЕКТ НЕЛЬЗЯ ПЕРЕБРАТЬ С ПОМОЩЬЮ map, и С ПОМОЩЬЮ for each. Можно перебрать с помощью for in
     const list = [];
 
-    for (const key in params) {// перебираем объект params = {'':'', '':''} , key - ключ
+    for (const key in params) {// перебираем объект params = {Тип: "ноутбук", Операционная система: "Windows 10 Pro", Процессор: "Intel Core i3 1115G4 3 ГГц} , key - ключ
         //console.log('ключи ', key);
         //console.log('значения ключей ', params[key]);
 
@@ -94,19 +97,21 @@ const createParams = (params) => { // ОБЪЕКТ НЕЛЬЗЯ ПЕРЕБРАТ
         list.push(li);
     }
     //console.log('list ', list); // [ li.card__params-item, li.card__params-item,  li.card__params-item]
-    //console.log('после спред оператора ', ...list); // [ <li class="card__params-item"></li>, <li class="card__params-item"></li>, <li></li>]
+    //console.log('после спред оператора ', ...list); //  <li class="card__params-item"></li>, <li class="card__params-item"></li>, <li></li>
     return list;
 
 };
 
 
-// отображение карточик товара
+// отображение карточки товара
 export const renderItem = (item) => { // item-{} товар полученный от сервера
     console.log('item from server', item);
 
     const cardImage = document.querySelector('.card__image'); // img
-    cardImage.append(createCardImageSlider(item.images.large)); // передаем фунцию, котрпая возвращате массив фоток для большого сладйера
+    cardImage.append(createCardImageSlider(item.images.large)); // передаем фунцию, котрпая возвращате вестку <ul><li></li><li></li><li></li></ul>
 
+
+    // маленький слайдер(под большим фото)
     const cardSliderThumb = document.querySelector('.card__slider-thumb'); //  ul
     const swiperScrollBar = document.createElement('div'); // создаем элемент скроллбара
     swiperScrollBar.className = 'swiper-scrollbar';
@@ -142,10 +147,7 @@ export const renderItem = (item) => { // item-{} товар полученный
 
 
 
-
-
-
-    const thumbSwiper = new Swiper('.card__slider-thumb', { // маленький сладйер
+    const thumbSwiper = new Swiper('.card__slider-thumb', { // маленький сладйер(под большим фото)
         spaceBetween: 44, // расстояние между слайдами
         slidesPerView: 3,
         modules: [Scrollbar],
@@ -167,7 +169,6 @@ export const renderItem = (item) => { // item-{} товар полученный
         modules: [Thumbs]
 
     });
-
 
 };
 

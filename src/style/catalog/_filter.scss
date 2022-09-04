@@ -1,8 +1,6 @@
 .filter {
-
     max-width: 340px;
     padding-top: 78px;
-
 
     @include tablet {
         // < 1000px;
@@ -10,11 +8,11 @@
         position: absolute;
         top: 0;
         right: 0;
-        z-index: 555; // чем больше индекс, тем он выше будет раполгаться  на станице
+        z-index: 555; // чем больше индекс, тем он выше будет располгаться  на станице
         padding: 14px 26px;
         background-color: $color-secondary;
 
-        &-show {
+        &--show {
             display: block;
         }
     }
@@ -24,6 +22,7 @@
     &__form {
         position: relative; // относительно фильтра позиционируем кнопку Очистть все
     }
+
 
 
     &__label-select {
@@ -157,7 +156,6 @@
             color: $color-grey;
             appearance: none; // чтоыб галочка у выпадащего списка "Категрия" исчезла
         }
-
     }
 
 
@@ -171,7 +169,6 @@
         &:active {
             border-color: #197C00;
         }
-
     }
 
 
@@ -204,9 +201,7 @@
         @include tablet {
             // < 1000px;
             margin-bottom: 15px;
-
         }
-
     }
 
 
@@ -237,11 +232,9 @@
 
         @include tablet {
             // < 1000px;
-            position: static;
+            position: static; // выйдет из потока
             display: block;
             margin: 0 auto; //  центруем
-
         }
-
     }
 }

@@ -1,18 +1,17 @@
 .header {
     padding: 26px 0;
 
+    // вместо того, чтобы писать @media (max-width: 560px), пишем @include mobile{}
     @include mobile {
-        // вместо ттго чтобы писать @media (max-width: 560px), пишем @include mobile{}
         // <560px
         padding: 15px 0;
-
     }
 
 
 
     &__container {
         display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-columns: 1fr 3fr 1fr; // Лого занимает 1 столбец, поле поиска 3 столбца, теофн занимает 1стлбец 
         gap: 30px;
 
         @include desktop {
@@ -36,7 +35,7 @@
         @include mobile {
             // < 560px
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: wrap; // все что не влезет , перенеселтся
             gap: 20px;
             justify-content: space-between;
         }
@@ -65,7 +64,7 @@
 
     &__seacrh {
         //грид элемент
-        max-width: 818px;
+        max-width: 818px; // ширина поля поиска
         justify-self: center; //  грид элемент по центру грид-ячейки. align-self - для вертк выравнивания
 
         @include desktop {
@@ -80,9 +79,9 @@
         }
 
         @include tablet {
-            // < 560px
-            order: 1; // для флекс элемента
-            grid-column: span 2;
+            // < 768px
+            order: 1; // для флекс элемента чтобы поиск шел последеним
+            grid-column: span 2; // чтоб грид элемент растянулся
         }
 
     }

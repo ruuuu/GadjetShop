@@ -85,38 +85,32 @@ iframe {
   */
 
 .container {
-    max-width: 1880px; // ширина контента
+    max-width: 1880px; // ширина контента по макету
     padding: 0 30px; // чтоб контенет не прижмался к краям страницы
     margin: 0 auto;
 
-
+    // с @include вызываем миксин с названием desktop:
     @include desktop {
         // < 1600px
-        // с @include вызываем миксин с названием desktop
         max-width: 1480px; // ширина контента
-
     }
 
     @include laptop {
         // < 1200px
         max-width: 1000px; // ширина контента
         padding: 0 15px;
-
     }
 
     @include tablet {
         // < 1000px
-        max-width: 670px; // ширина контента
-
+        max-width: 670px; // ширина контента 640px+15px*2
     }
 
     @include mobile {
-        //< 560px
+        // < 560px
         max-width: 320px;
         padding: 10px;
-
     }
-
 
 }
 
@@ -129,15 +123,11 @@ main {
         max-width: 670px; // ширина контента
         padding-top: 24px;
         padding-bottom: 80px;
-
     }
 
     @include mobile {
         // < 560px
         max-width: 320px;
         padding-top: 35px;
-
     }
-
-
 }

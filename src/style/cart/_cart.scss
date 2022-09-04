@@ -9,7 +9,7 @@
 
         @include desktop {
             // < 1600px
-            grid-template-columns: minmax(59%, 848px) minmax(34%, 494px);
+            grid-template-columns: minmax(59%, 848px) minmax(34%, 494px); // (848px/1420px)*100% = 59%, где 1420 ширина container
             column-gap: 20px;
 
         }
