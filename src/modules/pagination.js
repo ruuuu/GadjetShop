@@ -4,20 +4,20 @@ const createItemPagination = (hrefLink, textContent, active) => {
     const li = document.createElement('li');
     li.className = 'pagination__item';
 
-    const a = document.createElement('a'); // в др приложениях(котрые не перезагружают страницу) вместо ссылок могут быть кнопки
+    const a = document.createElement('a');          // в др приложениях(котрые не перезагружают страницу) вместо ссылок могут быть кнопки
     a.className = 'pagination__link';
 
     a.href = hrefLink;
     a.textContent = textContent;
 
-    if (active) { // если ссылка активняа
+    if (active) {       // если ссылка активняа
         a.classList.add('pagination__link--active');
     }
 
     console.log('a', a);
-    li.append(a); // <li class="pagination__item"><a class="pagination__link" href="http://localhost:3000/index.html?page=1"></a></li>
+    li.append(a);       // <li class="pagination__item"><a class="pagination__link" href="http://localhost:3000/index.html?page=1"></a></li>
 
-    return li;  // <li></li>
+    return li;          // <li>...</li>
 };
 
 
@@ -43,10 +43,10 @@ const pagination = (wrapper, pages, page, count) => { // pages- колво ст�
         // console.log('page ', page);
         // console.log('n ', n);
 
-        let n = i + 1; // номер активной страницы
+        let n = i + 1;  // номер активной страницы
 
-        if (isNotStart) { // если не первая
-            if (isEnd) { // если не последняя
+        if (isNotStart) {   // если не первая
+            if (isEnd) {    // если не последняя
                 n = pages - count + i + 1;
             }
             else {
@@ -54,12 +54,12 @@ const pagination = (wrapper, pages, page, count) => { // pages- колво ст�
             }
         }
 
-        const url = new URL(location); // созздаем урл на основе существуюещего, те  есть  localhost/?page=2
+        const url = new URL(location);      // созздаем урл на основе существуюещего, те  есть  localhost/?page=2
 
         console.log('url from pagination', url);
-        url.searchParams.set('page', n); // устананавливаем  query-парамтер page=n
+        url.searchParams.set('page', n);        // устананавливаем  query-парамтер page=n
         //                             `index.html?page=${n}`
-        const li = createItemPagination(url, n, page === n); // n-номер страницы, page-номер страницы  на котрой находимся
+        const li = createItemPagination(url, n, page === n);        // n-номер страницы, page-номер страницы  на котрой находимся
         paginationList.append(li);
     }
 

@@ -4,14 +4,14 @@ import { API_URI } from "./var";
 
 
 // goods-[{},{},{}]  полученые от сервера:
-export const renderGoods = (wrapper, goods) => { // wrapper это <ul class="goods__list"></ul>
-    wrapper.textContent = ''; // очищает список товаров
+export const renderGoods = (wrapper, goods) => {            // wrapper это <ul class="goods__list"></ul>
+    wrapper.textContent = '';       // очищает список товаров
 
-    if (!goods.length) { // если от сервера ничгео не  пришло, в <ul></ul> добавлям текст
+    if (!goods.length) {        // если от сервера ничгео не  пришло, в <ul></ul> добавлям текст
         wrapper.innerHTML = '<h2>По вашему запросу ничего не найдлено</h2>';
     }
 
-    const cards = goods.map((item) => { // перебираем массив goods, получим новый массив cards=[<li>...</li>, <li>...</li>, <li>...</li>, <li>...</li>], item-текущий товар {}, map применяет для каждого элеента массива переданную фукнцию
+    const cards = goods.map((item) => {             // перебираем массив goods, получим новый массив cards=[<li>...</li>, <li>...</li>, <li>...</li>, <li>...</li>], item-текущий товар {}, map применяет для каждого элеента массива переданную фукнцию
         //console.log(item); // { id, title, image, price }
 
         const li = document.createElement('li');
@@ -30,26 +30,26 @@ export const renderGoods = (wrapper, goods) => { // wrapper это <ul class="go
             </article>
         `;
 
-        return li; // <li>...</li>
+        return li;      // <li>...</li>
     });
 
     //  кнопке "В корзину" добавили атрибут data-id-goods чтобы определять какой товар добавили в корзину
     // cards = [li.goods__item, li.goods__item, li.goods__item]
     //console.log('...cards ', ...cards); // ... - spread отператор нужен чтобы вытащить каждый элемент массива, выдаст <li class="goods__item">...</li>, <li class="goods__item">...</li>, <li class="goods__item">...</li>, <li class="goods__item">...</li>
 
-    wrapper.append(...cards); // добавили верстку <li></li> в <ul class="goods__list"></ul>
+    wrapper.append(...cards);       // добавили верстку <li></li> в <ul class="goods__list"></ul>
 
 };
 
 
 
 // goodss объект  { goods: Array(6), page: 1, pages: 1 } от сервера
-export const renderGoods2 = (wrapper, goodss) => { // wrapper - <ul class="recommended__list"></ul>
+export const renderGoods2 = (wrapper, goodss) => {      // wrapper - <ul class="recommended__list"></ul>
     wrapper.textContent = '';
     //console.log('goodss from server ', goodss); // получаем объект  { goods: Array(6), page: 1, pages: 1 }
     //console.log('goodss.goods ', goodss.goods);
 
-    const cards = goodss.goods.map((item) => { // перебираем массив товаров от сервера
+    const cards = goodss.goods.map((item) => {          // перебираем массив товаров от сервера
         console.log('item2 ', item);
 
         const li = document.createElement('li');
@@ -68,7 +68,7 @@ export const renderGoods2 = (wrapper, goodss) => { // wrapper - <ul class="recom
             </article>
         `;
 
-        return li; // <li>...</li>
+        return li;      // <li>...</li>
     });
 
     // итого: cards = [ li.swiper-slide.goods__item, li.swiper-slide.goods__item, li.swiper-slide.goods__item ]
@@ -76,7 +76,7 @@ export const renderGoods2 = (wrapper, goodss) => { // wrapper - <ul class="recom
     //console.log('cards ', cards);
     // console.log('...cards ', ...cards); // ... - spread отператор нужен чтобы вытащить каждый элемент(товар) массива, после спреда оператора cards = [ <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li>, <li>..</li> ]
 
-    wrapper.append(...cards); // добавили версnку <li></li> в <ul class="recommended__list"></ul>
+    wrapper.append(...cards);       // добавили версnку <li></li> в <ul class="recommended__list"></ul>
 
 };
 

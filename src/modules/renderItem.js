@@ -1,4 +1,4 @@
-// отображение картчоик товара:
+// отображение картчоик товара на станице товара:
 
 import { API_URI } from "./var";
 import Swiper, { Thumbs, Scrollbar } from 'swiper';
@@ -75,7 +75,6 @@ const createDescription = (descriptions) => { // передаем массив [
     //console.log('list ', list); // [p, p, p]
     //console.log('после спред оператора ', ...list); // [ <p>..</p>, <p>..</p>, <p>..</p>]
     return list;
-
 };
 
 

@@ -6,7 +6,7 @@ import { showOverlay, hideOverlay } from './overlay';
 
 
 
-const toggleFilter = (filter, catalogFilterBtn, filterTitle) => { // для планшетов и меньше, filter-блок фильтра, catalogFilterBtn -кнпока по нажатию котрой отображается блок филтра
+const toggleFilter = (filter, catalogFilterBtn, filterTitle) => {       // для планшетов и меньше, filter-блок фильтра, catalogFilterBtn -кнпока по нажатию котрой отображается блок филтра
 
     catalogFilterBtn.addEventListener('click', () => {
         showOverlay(); // оверелй показываем
@@ -14,9 +14,9 @@ const toggleFilter = (filter, catalogFilterBtn, filterTitle) => { // для пл
     });
 
 
-    filterTitle.addEventListener('click', () => { // по нажатию на заголовк
+    filterTitle.addEventListener('click', () => {       // по нажатию на заголовк
         hideOverlay(); // удал]ем оверлей
-        filter.classList.remove('filter--show'); // закрыаем блок Фильтры
+        filter.classList.remove('filter--show');        // закрыаем блок Фильтры
     })
 };
 
@@ -25,22 +25,22 @@ const toggleFilter = (filter, catalogFilterBtn, filterTitle) => { // для пл
 
 export const filter = (goodsList, paginataionWrapper) => {
 
-    const filter = document.querySelector('.filter'); // блок ФИльры
-    const catalogFilterBtn = document.querySelector('.catalog__filter-btn'); // кнпока по нажатию котрой отображается блок филтра
+    const filter = document.querySelector('.filter');       // блок ФИльры
+    const catalogFilterBtn = document.querySelector('.catalog__filter-btn');        // кнпока по нажатию котрой отображается блок филтра
     const filterTitle = document.querySelector('.filter__titile');
-    toggleFilter(filter, catalogFilterBtn, filterTitle); // отображает блок Фильры из выпадашки(для планшетов и меньше)
+    toggleFilter(filter, catalogFilterBtn, filterTitle);        // отображает блок Фильры из выпадашки(для планшетов и меньше)
 
 
-    const category = document.querySelector('#category'); // выпадающий спсико КАтегория <select></select>, сюда будем добавлять созданные <option></option>
+    const category = document.querySelector('#category');       // выпадающий спсико КАтегория <select></select>, сюда будем добавлять созданные <option></option>
 
     // всатлвяем верстку выпадающегоь спсика:
     getCategory() // поличм от сервера объект с категриями
-        .then((categoryList) => { // categoryList - объект категрий полченный от сервера
+        .then((categoryList) => {       // categoryList - объект категрий полченный от сервера
             // console.log('categoryList ', categoryList); // { notebook: 'Ноутбуки', smartphone: 'Смартфоны', smartwatch: 'Умные часы', tablets: 'Планшеты', monoblok: 'Моноблоки', …}
 
-            for (const categoryListKey in categoryList) { // ОБЪЕКТ НЕЛЬЗЯ ПЕРЕБРАТЬ С ПОМОЩЬЮ map(как массив), или С ПОМОЩЬЮ for each. Можно перебрать с помощью for in
+            for (const categoryListKey in categoryList) {       // ОБЪЕКТ НЕЛЬЗЯ ПЕРЕБРАТЬ С ПОМОЩЬЮ map(как массив), или С ПОМОЩЬЮ for each. Можно перебрать с помощью for in
                 // console.log('category ', category);
-                const option = document.createElement('option'); // <option> </option>
+                const option = document.createElement('option');        // <option> </option>
                 //option.setAttribute('value', categoryListKey);  //   <option value="key"> </option>
                 option.value = categoryListKey;
                 option.textContent = categoryList[categoryListKey];
@@ -51,11 +51,11 @@ export const filter = (goodsList, paginataionWrapper) => {
 
 
 
-    const filterForm = document.querySelector('.filter__form'); //  форма фильтра
-    filterForm.addEventListener('submit', (evt) => { // обработчик формы, по нажати ена кнопку Применить фильтр
-        evt.preventDefault(); // evt - обхект события, отменяпм действиеп умолчанию. то  есть перзагрзка станицы
+    const filterForm = document.querySelector('.filter__form');         //  форма фильтра
+    filterForm.addEventListener('submit', (evt) => {        // обработчик формы, по нажати ена кнопку Применить фильтр
+        evt.preventDefault();       // evt - обхект события, отменяпм действиеп умолчанию. то  есть перзагрзка станицы
 
-        const checkboxes = new Set(); // это коллекция(это псевдомассив, у него нет методов котрые ест у массива)  [] и в ней элементы не повторяются. Ниже в меоде forEach()  заполним ее. Можно также черз FormData(), но она запомианет только последний выбранный чекбокс
+        const checkboxes = new Set();       // это коллекция(это псевдомассив, у него нет методов котрые ест у массива)  [] и в ней элементы не повторяются. Ниже в меоде forEach()  заполним ее. Можно также черз FormData(), но она запомианет только последний выбранный чекбокс
         console.log('checkboxes ', checkboxes);
         // checkbox.add(13); // добавили в коллецию 13
 
@@ -64,10 +64,10 @@ export const filter = (goodsList, paginataionWrapper) => {
         // console.log(...filterForm.elements); //  получим  массив ( эти же уже эелменты в виде тэгов)
         //console.log('[...filterForm.elements] ', [...filterForm.elements]); // [<button class="filter__reset"></button>, <fieldset class="filter__fileld"></fieldset>, <input class="filter__input">]
 
-        [...filterForm.elements].forEach((elem) => { // метод forEach применяет переданную фукнию к каждому элементу массива
+        [...filterForm.elements].forEach((elem) => {            // метод forEach применяет переданную фукнию к каждому элементу массива
             // console.log(elem);
-            if (elem.type === 'checkbox') { // если это чекбокс
-                checkboxes.add(elem.name); //  добавлям в коллекцию name чекбокса
+            if (elem.type === 'checkbox') {         // если это чекбокс
+                checkboxes.add(elem.name);      //  добавлям в коллекцию name чекбокса
             }
         });
 
@@ -75,14 +75,14 @@ export const filter = (goodsList, paginataionWrapper) => {
 
         const data = {}; // объект котрый будем отправлять на сервер,  в цикле будем заполнять
 
-        const formData = new FormData(filterForm); //  это коллекция
+        const formData = new FormData(filterForm);      //  это коллекция
         //console.log('FormData  ', formData);
 
         for (const [name, value] of formData) {
-            //console.log([name, value]); // отфильровав в ui, получим [name, value]: ['minprice', '2'] ['maxprice', '3'] ['category', 'notebook'] ['maxdisplay', '4'] ['mindisplay', '5'] ['color', 'gold']
+            //console.log([name, value]);           // отфильровав в ui, получим [name, value]: ['minprice', '2'] ['maxprice', '3'] ['category', 'notebook'] ['maxdisplay', '4'] ['mindisplay', '5'] ['color', 'gold']
             if (!value) continue;
 
-            if (checkboxes.has(name)) { // если в коллекциие етсь ключ name
+            if (checkboxes.has(name)) {             // если в коллекциие етсь ключ name
                 if (Array.isArray(data[name])) {
                     data[name].push(value);
                 }
@@ -95,7 +95,7 @@ export const filter = (goodsList, paginataionWrapper) => {
             }
         }
 
-        console.log('data object ', data); // применив фильтр,  {minprice: '23', maxprice: '45', category: 'smartphone', color: 'green'}
+        console.log('data object ', data);          // применив фильтр,  {minprice: '23', maxprice: '45', category: 'smartphone', color: 'green'}
 
         //лоадер добавялем
         goodsList.innerHTML = `
@@ -109,26 +109,26 @@ export const filter = (goodsList, paginataionWrapper) => {
 
         // если вбиваемв поле поиска что-то:
         const url = new URL(location);
-        const search = url.searchParams.get('search'); // получам значение query-парамтера seacrh, это нужно если в поле поиска ввести 'планшет', в урде появится ?search=планшет
+        const search = url.searchParams.get('search');      // получам значение query-парамтера seacrh, это нужно если в поле поиска ввести 'планшет', в урде появится ?search=планшет
         //console.log('search ', search);
-        url.search = ''; // очищаем  фильтры при след фильрации
+        url.search = '';            // очищаем  фильтры при след фильрации
 
-        for (const key in data) { // перебираем ключи в объекте data = {minprice: '23', maxprice: '546', category: 'smartphone', maxdisplay: '2', mindisplay: '3', …}
-            url.searchParams.set(key, data[key]); // в урле устананавливаем  query-парамтры типа key=data[key]
+        for (const key in data) {           // перебираем ключи в объекте data = {minprice: '23', maxprice: '546', category: 'smartphone', maxdisplay: '2', mindisplay: '3', …}
+            url.searchParams.set(key, data[key]);       // в урле устананавливаем  query-парамтры типа key=data[key]
         }
         //console.log('url ', url);
-        history.pushState(null, null, url); // histroy- объект, полсе применения фильтра, в урле  будут наши параметры ?minprice=34&maxprice=23&category=smartwatch&maxdisplay=23&mindisplay=5453&color=silver
+        history.pushState(null, null, url);         // histroy- объект, полсе применения фильтра, в урле  будут наши параметры ?minprice=34&maxprice=23&category=smartwatch&maxdisplay=23&mindisplay=5453&color=silver
 
 
         getGoods() // получим товары с сервера goods
-            .then(({ goods, pages, page }) => { // деструктуризация
-                filter.classList.remove('filter-show'); // чтобы после нажатия на Применить фильтр, блок Фильтры скрывалось
+            .then(({ goods, pages, page }) => {             // деструктуризация
+                filter.classList.remove('filter-show');             // чтобы после нажатия на Применить фильтр, блок Фильтры скрывалось
                 hideOverlay();
 
                 //console.log('data ', { goods, pages, page });
                 //console.log('goods ', goods);
-                renderGoods(goodsList, goods); // отрисовываем карточки товаров goods = [{},{},{},{},{}], полученные от сервера  
-                startPagination(paginataionWrapper, pages, page); // 50- число страниц(котрые в блоке пагинации )
+                renderGoods(goodsList, goods);              // отрисовываем карточки товаров goods = [{},{},{},{},{}], полученные от сервера  
+                startPagination(paginataionWrapper, pages, page);           // 50- число страниц(котрые в блоке пагинации )
             });
     });
 
@@ -141,17 +141,17 @@ export const filter = (goodsList, paginataionWrapper) => {
 // ДЗ:
 export const filterFooter = () => {
 
-    const categoryFooterList = document.querySelector('.footer__list'); // ul сюда бдуем скадвать созданеы li
+    const categoryFooterList = document.querySelector('.footer__list');             // ul сюда бдуем скадвать созданеы li
 
-    getCategoryFooter().then((categoryList) => { // categoryList -спсиок категрий полченный от сервера
-        console.log('categoryList ', categoryList); // {notebook: 'Ноутбуки', smartphone: 'Смартфоны', smartwatch: 'Умные часы', tablets: 'Планшеты', monoblok: 'Моноблоки', …}
+    getCategoryFooter().then((categoryList) => {            // categoryList -спсиок категрий полченный от сервера
+        // console.log('categoryList ', categoryList);         // {notebook: 'Ноутбуки', smartphone: 'Смартфоны', smartwatch: 'Умные часы', tablets: 'Планшеты', monoblok: 'Моноблоки', …}
 
-        for (const categoryListKey in categoryList) { // ОБЪЕКТ НЕЛЬЗЯ ПЕРЕБРАТЬ С ПОМОЩЬЮ map(как массив), или С ПОМОЩЬЮ for each. Можно перебрать с помощью for in
+        for (const categoryListKey in categoryList) {       // ОБЪЕКТ НЕЛЬЗЯ ПЕРЕБРАТЬ С ПОМОЩЬЮ map(как массив), или С ПОМОЩЬЮ for each. Можно перебрать с помощью for in
             //console.log('category ', category);
 
-            const li = document.createElement('li'); // <li> </li>
+            const li = document.createElement('li');        // <li> </li>
             li.className = 'footer__item';
-            const a = document.createElement('a');  // <a></a>
+            const a = document.createElement('a');          // <a></a>
             a.className = 'footer__link';
             a.href = "#";
             li.append(a);
