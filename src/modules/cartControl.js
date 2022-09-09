@@ -1,24 +1,24 @@
 import { API_URI } from "./var.js";
+import { seviceCounter } from "./counterControl.js";
 
-// добавление товара в лок хранлище(корзину)
+// добавление товара {} в лок хранлище(корзину)
 const addToCart = (id, count = 1) => {      // id - id товара, count- число товара(с id) в корзине. Если count не передали то предадим 1
 
     //корзина  cartGoods = { 
-    //      1103753567: count, 
-    //      2495679461: count, 
+    //      1103753567: 1, 
+    //      2495679461: 3, 
     //      id3: count
     //   } - объект
     const cartGoods = localStorage.getItem('cart-ts') ? JSON.parse(localStorage.getItem('cart-ts')) : {};       // получаем из locastorage днные по ключу cart-ts(его придумали сами), данные в  нем хранятся в виде JSON, поэтому парсим JSON.parse
-    cartGoods[id] = count;      // добавляепм товар с идентификаром id в объект cartGoods(корзина)
+    cartGoods[id] = count;      // добавляепм товар с  id в объект cartGoods(корзина)
 
     localStorage.setItem('cart-ts', JSON.stringify(cartGoods));         // запсиывем в лок ханилище обнолвенные данные, сперва превращаем в json-строку методом JSON.stringify 
-
 };
 
 
 
 
-// удалеение товара из лок хранлища, при нажатии на крестик(на cart.hrml), будем вызыват эту фукницю
+// удалеение товара из лок хранлища, при нажатии на крестик у товара(на cart.hrml), будем вызыват эту фукницю
 const removeToCart = (id) => {      // id - id товара
 
 
@@ -28,12 +28,12 @@ const removeToCart = (id) => {      // id - id товара
     delete cartGoods[id];       // удаляем элемент из объекта
 
     localStorage.setItem('cart-ts', JSON.stringify(cartGoods));         // запсиывем в лок ханилище обноленные  данные, сперва превращаем в json методом JSON.stringify 
-
 };
 
 
 //                              classCount - число на корзне в правом верхнем углу
-const checkItems = ({ classDelete, classAdd, classCount } = {}) => {        // проверяет число товаров в корзине и указваем число торвоав зеленом кружочке
+// присвамеваем {}, если мы ничего не передаем в метод
+const checkItems = ({ classDelete, classAdd, classCount } = {}) => {        // проверяет число товаров в корзине и вставляем число торвоав зеленом кружочке
 
     const cartGoods = localStorage.getItem('cart-ts') ? JSON.parse(localStorage.getItem('cart-ts')) : {}; // получим даннеы из  localStorage, товароы в  корзине
     //console.log('Корзина cartGoods ', cartGoods);
@@ -68,8 +68,8 @@ const checkItems = ({ classDelete, classAdd, classCount } = {}) => {        // �
     }
 
     if (classAdd && classCount) {
-        const countElem = document.querySelector(`.${classCount}`);     // зеленый кружочек на корзине(правый верхний угл)
-        const addElem = document.querySelector(`.${classAdd}`);         // кнопка В Корзину
+        const countElem = document.querySelector(`${classCount}`);      // зеленый кружочек на корзине(правый верхний угл)
+        const addElem = document.querySelector(`${classAdd}`);          // кнопка В Корзину
         countElem.value = cartGoods[addElem.dataset.idGoods] || 1;      //  лейбл между кнопками +/-
     }
 
@@ -77,7 +77,7 @@ const checkItems = ({ classDelete, classAdd, classCount } = {}) => {        // �
 
 
 
-
+// Логика на;атия +/- у товара:
 //                            wrapper - .goods-list. приравниваемк  объекту птсой объект,вслучае если передаваемых парамтеров не будет
 export const cartControl = ({ wrapper, classAdd, classDelete, classCount } = {}) => {       // деструктурируем объект, classAdd - класс у кнопки "В корзину"(определяем по кнпоке ли был клик),  classDelete класс на кнопке "В корзине"
     checkItems({ classDelete, classAdd, classCount });      // всем кнопкам добавляем класс classDelete
@@ -106,9 +106,9 @@ export const cartControl = ({ wrapper, classAdd, classDelete, classCount } = {})
     }
     else
         if (classAdd && classCount) {
-            const btn = document.querySelector(`.${classAdd}`);         // кнопка "В корзину" на странице товара
+            const btn = document.querySelector(`${classAdd}`);         // кнопка "В корзину" на странице товара
             const id = btn.dataset.idGoods;         // забираем значение дата-атрибта
-            const countElem = document.querySelector(`.${classCount}`); // лейбл между кнопками +/-
+            const countElem = document.querySelector(`${classCount}`); // лейбл между кнопками +/-
 
             btn.addEventListener('click', () => {
                 const count = +countElem.value;     // + приводит к строке
@@ -121,14 +121,13 @@ export const cartControl = ({ wrapper, classAdd, classDelete, classCount } = {})
 
 
 
-// отрисовываем товары из Корзины cartGoods на старнице cart.html:
+// отрисовываем товары из Корзины cartGoods на старнице cart.html, мой способ:
 export const renderCart = (goods, cartGoods) => {       // goods - товары [{},{},{},{}] Корзины  с сервера; cartGoods {'343534534':1, '67864564':3, '554535432': 2}
     //console.log('goods from trash ', goods);
     const cartGoodsList = document.querySelector('.cart-goods__list');      // ul
-    cartGoodsList.textContent = '';         // при  последущем отрисовывании чоб спрва очистилось все 
-    // const img = new Image(200, 200);         // размеры задать можно
+    cartGoodsList.textContent = '';                 // при  последущем отрисовывании чоб спрва очистилось все 
 
-    const cartItems = goods.map((good) => {     //   вернет массив li-ек
+    const cartItems = goods.map((good) => {         //   вернет массив li-ек
         const li = document.createElement('li');
         li.classList.add('cart-goods__item', 'item');
         li.innerHTML = `
@@ -152,11 +151,115 @@ export const renderCart = (goods, cartGoods) => {       // goods - товары 
                 </button>
             `;
 
+        li.querySelector('.item__count').dataset.idGoods = good.id;
         return li; // <li>...</li>
+
     });
 
     // cartItems = [li.cart-goods__item, li.cart-goods__item, li.cart-goods__item]
     // ...cartItems = <li class="cart-goods__item"></li>  <li class="cart-goods__item"></li>  <li class="cart-goods__item"></li>
 
     cartGoodsList.append(...cartItems);
+
 };
+
+
+
+
+// отрисовываем товары из Корзины cartGoods на старнице cart.html(втрой способ Максима):
+export const renderCart2 = (goods, cartGoods) => {       // goods - товары [{},{},{},{}] Корзины  с сервера; cartGoods {'343534534':1, '67864564':3, '554535432': 2}
+
+    const cartGoodsList = document.querySelector('.cart-goods__list');      // ul
+    cartGoodsList.textContent = '';             // при  последущем отрисовывании чоб спрва очистилось все 
+
+    goods.forEach((item) => {                   //  перебираем товары goods с сервера  (из Корзина)
+
+        const li = document.createElement('li');
+        li.classList.add('cart-goods__item', 'item');
+
+        const img = new Image(200, 200); // задаем размеры 
+        img.classList.add('item__img');
+        img.src = `${API_URI}${item.images.present}`;
+        img.alt = item.title;
+
+        const detail = document.createElement('div');
+        detail.classList.add('item__detail');
+
+        const title = document.createElement('h4');
+        title.className = 'item__title';
+        title.textContent = item.title;
+
+        const vendor = document.createElement('p');
+        vendor.className = 'item__vendor-code';
+        vendor.textContent = `Артикул ${item.id}`;
+        detail.append(title, vendor);
+
+
+        const control = document.createElement('div');
+        control.className = 'item__control';
+
+        const count = document.createElement('div');
+        count.className = 'item__count';
+        count.dataset.idGoods = item.id;                    // добавляем дата-атрибут data-id-goods, чтобы отправлять selectorWrapper в метод seviceCounter(). Либо вместо дата-атрибута можно просто добавить id
+
+        const dec = document.createElement('button');
+        dec.className = 'item__btn item__btn--dec';
+        dec.textContent = '-';
+
+
+        const number = document.createElement('output');
+        number.className = 'item__number';
+        number.value = cartGoods[item.id];
+
+
+        const inc = document.createElement('button');
+        inc.className = 'item__btn item__btn--inc';
+        inc.textContent = '+';
+
+        count.append(dec, number, inc);
+
+        const price = document.createElement('div');
+        price.className = 'item__price';
+        price.textContent = new Intl.NumberFormat('ru-RU', {
+            style: 'currency',
+            currency: 'RUB',
+            maximumFractionDigits: 0,
+        }).format(item.price);
+
+
+        const remove = document.createElement('button');
+        remove.className = 'item__remove-cart';
+        remove.innerHTML = `
+        <svg>
+            <use href="#remove" />
+        </svg>
+        `;
+
+
+        control.append(count, price, remove);
+        li.append(img, detail, control);
+
+
+        cartGoodsList.append(li);
+
+        //                    `[data-id-goods="${item.id}"]`
+        seviceCounter({ wrapper: count, number: number, selectDec: '.item__btn--dec', selectInc: '.item__btn--inc', });
+
+        count.addEventListener('click', (evt) => {                          // вметсо тго чтобы навешивать обработчик события на каждуюю кнопку(+/-), вешаем его на их родителя -count, это назвается  делегирование
+            const target = evt.target;                                      // элемент на  котрый нажали
+
+            if (target.closest('.item__btn--dec, .item__btn--inc')) {            // Метод elem.closest('selector') проверяет наличие селектора у элемента elem/его родителей 
+                addToCart(item.id, +number.value);                               // дбавлеам товар с его id в лок хранидище
+                checkItems();                                                    // обновлям  число товаров в Корзине(зеленый кружлчек)
+            }
+        });
+
+
+        remove.addEventListener('click', () => {        // нажатие на кнпоку Крестик у текущего товара
+            removeToCart(item.id);                      //  удалеение товара из лок хранлища
+            li.remove();                                // удфляем элемент из верстки
+            checkItems();
+        });
+    });
+
+}

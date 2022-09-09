@@ -10,7 +10,7 @@ import { getGoods, getGoodsItem } from './modules/goodService';
 import { renderGoods, renderGoods2 } from './modules/renderGoods';
 import { renderItem } from './modules/renderItem';
 import { filter, filterFooter } from './modules/filter';
-import { cartControl, renderCart } from './modules/cartControl';
+import { cartControl, renderCart, renderCart2 } from './modules/cartControl';
 import { seviceCounter } from './modules/counterControl';
 import { getGoodsList } from './modules/goodService';
 
@@ -94,9 +94,7 @@ try {
             })
 
 
-        seviceCounter({
-            selectorWrapper: '.card__count', selectorNumber: '.card__number', selectDec: '.card__btn--dec', selectInc: '.card__btn--inc',
-        });     // чтобы при нажтии на =/- число товраов увличивалось на станице товара(card.html)
+        seviceCounter({ wrapper: '.card__count', number: '.card__number', selectDec: '.card__btn--dec', selectInc: '.card__btn--inc', });     // чтобы при нажтии на +/- число товраов увличивалось на станице товара(card.html)
     }
 
 }
@@ -128,7 +126,7 @@ try {
             cart.append(preload); //  вставляем preload в .cart
             getGoodsList(list)          //  с сервера  получаем спсика товаров из Корзины по их id
                 .then(goods => {        // goods - товары котрые получили от сервера
-                    renderCart(goods, cartGoods);       //  отрисовываем верстку товаров полученнеыот сервера из Корзины cartGoods
+                    renderCart2(goods, cartGoods);       //  отрисовываем верстку товаров полученнеыот сервера из Корзины cartGoods
                     cartControl();          //  меням 
                     preload.remove();       // удаляем прелоадер
                 })
